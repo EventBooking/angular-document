@@ -1,4 +1,10 @@
 # using in a project
+
+## bower
+```
+bower install https://github.com/EventBooking/angular-document --save
+```
+
 ## css
 ```
 <link rel="stylesheet" href="bower_components/froala-wysiwyg-editor/css/froala_editor.pkgd.css" />

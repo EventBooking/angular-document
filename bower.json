@@ -1,7 +1,7 @@
 {
   "name": "angular-document",
   "main": "index.js",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "authors": [
     "Mike Walters <mike@eventbooking.com>"
   ],
