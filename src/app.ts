@@ -1,0 +1,1 @@
+Angular.module("ngDocument", ['froala']);

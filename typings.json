@@ -1,0 +1,7 @@
+{
+  "ambientDependencies": {
+    "angularjs": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#8ea42cd8bb11863ed6f242d67c502288ebc45a7b",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#661fc869669af796c6048483e999dce5732eed72",
+    "angular-typescript-module": "file:bower_components/angular-typescript-module/dist/angular-typescript-module.d.ts"
+  }
+}

@@ -1,0 +1,34 @@
+<div class="document-editor-wysiwyg">
+    <div class="document-editor-wysiwyg-content-add" ng-if="!documentEditor.withHeader">
+        <span class="document-editor-wysiwyg-content-add-button" ng-click="documentEditor.withHeader = true">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-plus fa-stack-1x"></i>
+            </span>
+            <span>Header</span>
+        </span>
+    </div>
+    <div class="document-editor-wysiwyg-content">
+        <div class="document-editor-wysiwyg-content-item" ng-if="documentEditor.withHeader">
+            <textarea froala="documentEditor.headerConfig" ng-model="documentEditor.header"></textarea>
+        </div>
+        <div class="document-editor-wysiwyg-content-item">
+            <textarea froala="documentEditor.contentConfig" ng-model="documentEditor.content"></textarea>
+        </div>
+        <div class="document-editor-wysiwyg-content-item" ng-if="documentEditor.withFooter">
+            <textarea froala="documentEditor.footerConfig" ng-model="documentEditor.footer"></textarea>
+        </div>
+    </div>
+    <div class="document-editor-wysiwyg-content-add" ng-if="!documentEditor.withFooter">
+        <span class="document-editor-wysiwyg-content-add-button" ng-click="documentEditor.withFooter = true">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-plus fa-stack-1x"></i>
+            </span>
+            <span>Footer</span> 
+        </span>
+    </div>
+</div>
+<div class="document-editor-sidebar">
+    <div class="document-editor-sidebar-content" ng-transclude></div>
+</div>

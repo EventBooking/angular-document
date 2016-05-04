@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "noImplicitAny": false,
+        "noEmitOnError": true,
+        "removeComments": false,
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "target": "es5",
+        "out": "dist/angular-document.js"
+    },
+    "files": [
+        "../typings/browser.d.ts",
+        "app.ts",
+        "document-editor.ts"
+    ]
+}

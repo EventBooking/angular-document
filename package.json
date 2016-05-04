@@ -1,0 +1,29 @@
+{
+  "name": "angular-document",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc -p src",
+    "tsc:w": "tsc -p src -w",
+    "build": "gulp styles && gulp html && npm run tsc",
+    "rebuild": "gulp clean && npm run build",
+    "start:w": "start gulp watch && start npm run tsc:w && lite-server",
+    "start": "npm run build && lite-server",
+    "postinstall": "bower install && typings install"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "~2.3.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-less": "^3.0.3",
+    "gulp-ng-html2js": "^0.2.0",
+    "gulp-template": "^3.0.0",
+    "lite-server": "^2.2.0",
+    "typescript": "^1.7.3",
+    "typings": "^0.8.1"
+  }
+}
