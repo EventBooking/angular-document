@@ -3,7 +3,8 @@ document-editor {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: absolute;
+  position: fixed;
+  background-color: #eee;
   top: 0;
   bottom: 0;
   left: 0;
@@ -116,7 +117,6 @@ document-editor {
   }
 }
 .fr-box .fr-wrapper {
-  background-color: #fff;
   border: solid 1px #ccc;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }

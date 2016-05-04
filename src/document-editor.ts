@@ -207,6 +207,7 @@ module NgDocument {
         }
 
         getContent(): string {
+            // ToDo: if <content></content> does not exist but there is html, wrap the html in a content tag
             return this.child('content');
         }
 

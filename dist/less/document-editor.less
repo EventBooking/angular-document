@@ -1,6 +1,7 @@
 document-editor {
     display: flex;
-    position: absolute;
+    position: fixed;
+    background-color: @document-editor-backgroundColor;
     top: 0;
     bottom: 0;
     left: 0;
@@ -88,7 +89,7 @@ document-editor {
 
 .fr-wrapper {
     .fr-box & {
-        background-color: @document-editor-backgroundColor;
+        // background-color: @document-editor-backgroundColor;
         border: solid 1px @document-editor-borderColor;
         box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     }
