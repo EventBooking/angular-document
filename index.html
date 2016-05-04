@@ -11,6 +11,8 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
 
+    <script src="bower_components/pdfjs-dist/build/pdf.js" ></script>
+    <script src="bower_components/angular-pdfjs/dist/angular-pdfjs.min.js" ></script>
     <script src="bower_components/froala-wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
     <script src="bower_components/angular-froala/src/angular-froala.js"></script>
     <script src="bower_components/angular-typescript-module/dist/angular-typescript-module.js"></script>
@@ -19,12 +21,25 @@
 </head>
 
 <body>
-    <button ng-click="showEditor = true" ng-hide="showEditor">show editor</button>
+    <div ng-hide="showEditor || showPdf">
+        <button ng-click="toggleEditor(true)">show editor</button>
+        <button ng-click="togglePdf(true)">show pdf</button>
+    </div>
+
+    <document-pdf url="'pdf.pdf'" ng-if="showPdf">
+        <div class="sidebar">
+            <button ng-click="togglePdf(false)">close pdf</button>
+        </div>
+    </document-pdf>
+
     <document-editor html="html" ng-if="showEditor">
         <div class="sidebar">
-            {{html}}
+            <button ng-click="toggleEditor(false)">close editor</button>
+            <div froala-view="html"></div>
+            <code>{{html}}</code>
         </div>
     </document-editor>
+
     <script src="demo.js"></script>
 </body>
 

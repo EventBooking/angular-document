@@ -1,1 +1,1 @@
-Angular.module("ngDocument", ['froala']);
+Angular.module("ngDocument", ['froala', 'angular-pdfjs']);

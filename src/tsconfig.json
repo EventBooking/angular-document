@@ -12,6 +12,7 @@
     "files": [
         "../typings/browser.d.ts",
         "app.ts",
-        "document-editor.ts"
+        "document-editor.ts",
+        "document-pdf.ts"
     ]
 }

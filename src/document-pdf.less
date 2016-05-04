@@ -1,0 +1,55 @@
+document-pdf {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: @document-editor-backgroundColor;
+}
+
+.document-viewer-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.document-viewer-toolbar {
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.document-viewer-toolbar-icon {
+    color: #aaa;
+    cursor: pointer;
+    
+    &:hover {
+        color: #333;
+    }
+}
+
+.document-viewer-toolbar-title {
+    margin: 0 1em;
+}
+
+.document-viewer-main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    position: relative;
+}
+
+.document-viewer-page {
+    margin: 1em;
+    border: solid 1px @document-editor-borderColor;
+    box-shadow: 0 0 0 0.75pt @document-editor-boxShadow-color1, 0 0 3pt 0.75pt @document-editor-boxShadow-color2;
+}
+
+.document-viewer-sidebar {
+    order: 2;
+    animation: sidebar-in 1s;
+    border-left: solid 1px @document-editor-borderColor;
+    background-color: @document-editor-sidebar-backgroundColor;
+}

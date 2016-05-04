@@ -1,0 +1,16 @@
+<div class="document-viewer-main">
+    <div ng-show="documentPdf.isLoading">
+        <div class="document-viewer-loading">
+            <i class="fa fa-spin fa-circle-o-notch"></i> Loading...
+        </div>
+    </div>
+    <div ng-show="!documentPdf.isLoading">
+        <div class="document-viewer-toolbar">
+            <i class="document-viewer-toolbar-icon fa fa-chevron-left" ng-click="documentPdf.pdf.previousPage()"></i>
+            <span class="document-viewer-toolbar-title">{{documentPdf.pdf.page}} of {{documentPdf.pdf.total}}</span>
+            <i class="document-viewer-toolbar-icon fa fa-chevron-right" ng-click="documentPdf.pdf.nextPage()"></i>
+        </div>
+        <div class="document-viewer-page" pdf-viewer="documentPdf.options" pdf-url="documentPdf.url"></div>
+    </div>
+</div>
+<div class="document-viewer-sidebar" ng-transclude></div>
