@@ -26,7 +26,7 @@
         <button ng-click="togglePdf(true)">show pdf</button>
     </div>
 
-    <document-pdf url="'pdf.pdf'" ng-if="showPdf">
+    <document-pdf url="{{pdfUrl}}" ng-if="showPdf">
         <div class="sidebar">
             <button ng-click="togglePdf(false)">close pdf</button>
         </div>

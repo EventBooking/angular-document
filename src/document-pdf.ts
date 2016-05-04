@@ -30,7 +30,7 @@ module NgDocument {
         controllerAs = 'documentPdf';
         bindToController = true;
         scope = {
-            url: '='
+            url: '@'
         }
 
         link = ($scope, $element, $attrs, $ctrl: DocumentPdfController) => {
