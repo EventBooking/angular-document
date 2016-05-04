@@ -2,7 +2,7 @@
 
 ## bower
 ```
-bower install https://github.com/EventBooking/angular-document --save
+bower install https://github.com/EventBooking/angular-document.git#^v1.0.0 --save
 ```
 
 ## css
