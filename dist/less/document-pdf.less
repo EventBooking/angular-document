@@ -42,10 +42,19 @@ document-pdf {
     position: relative;
 }
 
+.document-viewer-pages {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
 .document-viewer-page {
-    margin: 1em;
     border: solid 1px @document-editor-borderColor;
     box-shadow: 0 0 0 0.75pt @document-editor-boxShadow-color1, 0 0 3pt 0.75pt @document-editor-boxShadow-color2;
+    
+    & + & {
+        margin-top: 1em;
+    }
 }
 
 .document-viewer-sidebar {

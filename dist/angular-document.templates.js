@@ -58,12 +58,7 @@ module.run(['$templateCache', function($templateCache) {
     '        </div>\n' +
     '    </div>\n' +
     '    <div ng-show="!documentPdf.isLoading">\n' +
-    '        <div class="document-viewer-toolbar">\n' +
-    '            <i class="document-viewer-toolbar-icon fa fa-chevron-left" ng-click="documentPdf.pdf.previousPage()"></i>\n' +
-    '            <span class="document-viewer-toolbar-title">{{documentPdf.pdf.page}} of {{documentPdf.pdf.total}}</span>\n' +
-    '            <i class="document-viewer-toolbar-icon fa fa-chevron-right" ng-click="documentPdf.pdf.nextPage()"></i>\n' +
-    '        </div>\n' +
-    '        <div class="document-viewer-page" pdf-viewer="documentPdf.options" pdf-url="documentPdf.url"></div>\n' +
+    '        <div class="document-viewer-pages"></div>\n' +
     '    </div>\n' +
     '</div>\n' +
     '<div class="document-viewer-sidebar" ng-transclude></div>');

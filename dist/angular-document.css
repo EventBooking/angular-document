@@ -260,10 +260,24 @@ document-pdf {
   overflow: auto;
   position: relative;
 }
+.document-viewer-pages {
+  padding: 1em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 .document-viewer-page {
-  margin: 1em;
   border: solid 1px #ccc;
   box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
+}
+.document-viewer-page + .document-viewer-page {
+  margin-top: 1em;
 }
 .document-viewer-sidebar {
   -webkit-box-ordinal-group: 3;
