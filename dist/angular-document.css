@@ -29,6 +29,7 @@ document-editor {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 99;
 }
 .document-editor-wysiwyg {
   -webkit-box-ordinal-group: 2;
@@ -215,6 +216,7 @@ document-pdf {
   right: 0;
   bottom: 0;
   background-color: #eee;
+  z-index: 99;
 }
 .document-viewer-loading {
   position: absolute;
