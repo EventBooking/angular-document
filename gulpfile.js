@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     moduleName = 'ngDocument',
     dest = 'dist';
 
-gulp.task('watch', ['styles', 'html'], watch);
+gulp.task('build', ['styles', 'html']);
+gulp.task('watch', ['build'], watch);
 gulp.task('html', html);
 gulp.task('styles', styles);
 gulp.task('clean', clean);
