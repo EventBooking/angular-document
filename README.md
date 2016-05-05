@@ -14,6 +14,8 @@ bower install https://github.com/EventBooking/angular-document.git#^v1.0.0 --sav
 ```
 ## scripts
 ```
+<script src="bower_components/pdfjs-dist/build/pdf.combined.js" ></script>
+<script src="bower_components/angular-pdfjs/dist/angular-pdfjs.min.js" ></script>
 <script src="bower_components/froala-wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
 <script src="bower_components/angular-froala/src/angular-froala.js"></script>
 <script src="bower_components/angular-typescript-module/dist/angular-typescript-module.js"></script>
