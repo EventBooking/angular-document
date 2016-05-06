@@ -7,7 +7,10 @@ try {
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('document-editor.html',
     '<div class="document-editor-wysiwyg">\n' +
-    '    <div class="document-editor-wysiwyg-content-add" ng-if="!documentEditor.withHeader">\n' +
+    '    <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--toolbar">\n' +
+    '        <div class="document-editor-wysiwyg-toolbar"></div>\n' +
+    '    </div>    \n' +
+    '    <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content-add" ng-if="!documentEditor.withHeader">\n' +
     '        <span class="document-editor-wysiwyg-content-add-button" ng-click="documentEditor.withHeader = true">\n' +
     '            <span class="fa-stack fa-lg">\n' +
     '                <i class="fa fa-circle-thin fa-stack-2x"></i>\n' +
@@ -16,18 +19,18 @@ module.run(['$templateCache', function($templateCache) {
     '            <span>Header</span>\n' +
     '        </span>\n' +
     '    </div>\n' +
-    '    <div class="document-editor-wysiwyg-content">\n' +
-    '        <div class="document-editor-wysiwyg-content-item" ng-if="documentEditor.withHeader">\n' +
-    '            <textarea froala="documentEditor.headerConfig" ng-model="documentEditor.header"></textarea>\n' +
+    '    <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--editors">\n' +
+    '        <div class="document-editor-wysiwyg-content-item" ng-show="documentEditor.withHeader">\n' +
+    '            <textarea class="document-editor-header" froala="documentEditor.headerConfig" ng-model="documentEditor.header"></textarea>\n' +
     '        </div>\n' +
     '        <div class="document-editor-wysiwyg-content-item">\n' +
-    '            <textarea froala="documentEditor.contentConfig" ng-model="documentEditor.content"></textarea>\n' +
+    '            <textarea class="document-editor-content" froala="documentEditor.contentConfig" ng-model="documentEditor.content"></textarea>\n' +
     '        </div>\n' +
-    '        <div class="document-editor-wysiwyg-content-item" ng-if="documentEditor.withFooter">\n' +
-    '            <textarea froala="documentEditor.footerConfig" ng-model="documentEditor.footer"></textarea>\n' +
+    '        <div class="document-editor-wysiwyg-content-item" ng-show="documentEditor.withFooter">\n' +
+    '            <textarea class="document-editor-footer" froala="documentEditor.footerConfig" ng-model="documentEditor.footer"></textarea>\n' +
     '        </div>\n' +
     '    </div>\n' +
-    '    <div class="document-editor-wysiwyg-content-add" ng-if="!documentEditor.withFooter">\n' +
+    '    <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content-add" ng-if="!documentEditor.withFooter">\n' +
     '        <span class="document-editor-wysiwyg-content-add-button" ng-click="documentEditor.withFooter = true">\n' +
     '            <span class="fa-stack fa-lg">\n' +
     '                <i class="fa fa-circle-thin fa-stack-2x"></i>\n' +

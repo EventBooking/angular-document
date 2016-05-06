@@ -10,7 +10,8 @@ module NgDocument {
             this.footerOptions = this.footerOptions || {};
         }
 
-        onPreInit() {
+        onPreInit(toolbarId) {
+            this.toolbarId = toolbarId;
         }
 
         onInit() {
@@ -34,32 +35,33 @@ module NgDocument {
             return angular.extend(this.headerOptions || {}, {
                 placeholderText: 'Header',
                 width: 816,
-                toolbarSticky: false,
+                toolbarContainer: `#${this.toolbarId}`,
                 toolbarButtons: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeHeader',
-                    '-',
+                    'color', 'inlineStyle', 'paragraphStyle', 
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html',
+                    '|', 'removeHeader'
                 ],
                 toolbarButtonsMD: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
                     'color', 'inlineStyle', 'paragraphStyle', '|', 'removeHeader',
-                    '-',
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsSM: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
                     'color', 'inlineStyle', 'paragraphStyle', '|', 'removeHeader',
-                    '-',
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsXS: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
                     'color', 'inlineStyle', 'paragraphStyle', '|', 'removeHeader',
-                    '-',
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
@@ -76,32 +78,32 @@ module NgDocument {
             return angular.extend(this.contentOptions || {}, {
                 placeholderText: 'Content',
                 width: 816,
-                toolbarSticky: false,
+                toolbarContainer: `#${this.toolbarId}`,
                 toolbarButtons: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
                     'color', 'inlineStyle', 'paragraphStyle',
-                    '-',
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsMD: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
                     'color', 'inlineStyle', 'paragraphStyle',
-                    '-',
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsSM: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
                     'color', 'inlineStyle', 'paragraphStyle',
-                    '-',
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsXS: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
                     'color', 'inlineStyle', 'paragraphStyle',
-                    '-',
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
@@ -118,32 +120,33 @@ module NgDocument {
             return angular.extend(this.footerOptions || {}, {
                 placeholderText: 'Footer',
                 width: 816,
-                toolbarSticky: false,
+                toolbarContainer: `#${this.toolbarId}`,
                 toolbarButtons: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeFooter',
-                    '-',
+                    'color', 'inlineStyle', 'paragraphStyle', 
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html',
+                    '|', 'removeFooter'
                 ],
                 toolbarButtonsMD: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
                     'color', 'inlineStyle', 'paragraphStyle', '|', 'removeFooter',
-                    '-',
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsSM: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
                     'color', 'inlineStyle', 'paragraphStyle', '|', 'removeFooter',
-                    '-',
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsXS: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
                     'color', 'inlineStyle', 'paragraphStyle', '|', 'removeFooter',
-                    '-',
+                    //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
@@ -180,6 +183,7 @@ module NgDocument {
             this.footer = parser.getFooter();
         }
 
+        toolbarId: string;
         headerOptions: any;
         contentOptions: any;
         footerOptions: any;
@@ -281,6 +285,10 @@ module NgDocument {
 
         link = {
             pre: ($scope, $element, $attrs, $ctrl: DocumentEditorController) => {
+                var toolbarId = `document-editor-${$scope.$id}-wysiwyg-toolbar`;
+                var $toolbar = $element.find(".document-editor-wysiwyg-toolbar");
+                $toolbar.prop('id', toolbarId);
+
                 var editor: any = $['FroalaEditor'];
 
                 editor.DefineIcon('removeHeader', { NAME: 'times-circle' });
@@ -307,9 +315,36 @@ module NgDocument {
                     }
                 });
 
-                $ctrl.onPreInit();
+                $ctrl.onPreInit(toolbarId);
             },
             post: ($scope, $element, $attrs, $ctrl: DocumentEditorController) => {
+
+                var $header: any = $('.document-editor-header', $element);
+                var $content: any = $('.document-editor-content', $element);
+                var $footer: any = $('.document-editor-footer', $element);
+
+                $header.froalaEditor('toolbar.hide');
+                //$content.froalaEditor('toolbar.hide');
+                $footer.froalaEditor('toolbar.hide');
+
+                $header.on('froalaEditor.focus', (e, editor) => {
+                    editor.toolbar.show();
+                    $content.froalaEditor('toolbar.hide');
+                    $footer.froalaEditor('toolbar.hide');
+                });
+
+                $content.on('froalaEditor.focus', (e, editor) => {
+                    $header.froalaEditor('toolbar.hide');
+                    editor.toolbar.show();
+                    $footer.froalaEditor('toolbar.hide');
+                });
+
+                $footer.on('froalaEditor.focus', (e, editor) => {
+                    $header.froalaEditor('toolbar.hide');
+                    $content.froalaEditor('toolbar.hide');
+                    editor.toolbar.show();
+                });
+
                 $ctrl.onInit();
             }
         }
