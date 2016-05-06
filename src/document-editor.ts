@@ -43,10 +43,25 @@ module NgDocument {
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsMD: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeHeader',
+                    '-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsSM: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeHeader',
+                    '-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsXS: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeHeader',
+                    '-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 events: {
                     'froalaEditor.image.beforeUpload': (e, editor, images) => {
@@ -70,10 +85,25 @@ module NgDocument {
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsMD: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle',
+                    '-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsSM: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle',
+                    '-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsXS: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle',
+                    '-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 events: {
                     'froalaEditor.image.beforeUpload': (e, editor, images) => {
@@ -91,16 +121,31 @@ module NgDocument {
                 toolbarSticky: false,
                 toolbarButtons: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle', '|','removeFooter',
+                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeFooter',
                     '-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsMD: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeFooter',
+                    '-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsSM: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeFooter',
+                    '-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 toolbarButtonsXS: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeFooter',
+                    '-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
                 ],
                 events: {
                     'froalaEditor.image.beforeUpload': (e, editor, images) => {
