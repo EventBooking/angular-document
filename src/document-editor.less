@@ -105,7 +105,7 @@ document-editor {
         border-top: 0;
         display: flex;
         justify-content: center;
-        //animation: toolbar-in .3s;
+        flex-wrap: wrap;
     }
 }
 
@@ -122,19 +122,24 @@ document-editor {
 
 .fr-view {
     document-editor & {
-        padding: 0 1rem;
+        // padding: 0 1rem;
     }
 }
 
 .fr-placeholder {
+    document-editor .fr-wrapper & {
+        display: block;
+    }
+    
     document-editor .fr-wrapper.show-placeholder & {
         animation: placeholder-in .3s;
+        top: 10px;
+        left: 10px;
     }
     
     document-editor .fr-wrapper:not(.show-placeholder) & {
-        display: block;
-        transform: rotate(270deg) translate(-30px, -30px);
-	    transform-origin: left top 0;
+        transform: rotate(270deg) translate(-40px, -25px);
+	    transform-origin: 0 top;
         animation: placeholder-out .3s;
     }
 }
@@ -142,18 +147,18 @@ document-editor {
 @keyframes placeholder-out {
   0% {
     opacity: 0;
-    transform: rotate(270deg) translate(-30px, 0);
+    transform: rotate(270deg) translate(-40px, 0);
   }
   100% {
     opacity: 1;
-    transform: rotate(270deg) translate(-30px, -30px);
+    transform: rotate(270deg) translate(-40px, -25px);
   }
 }
 
 @keyframes placeholder-in {
   0% {
     opacity: 0;
-    transform: rotate(0) translate(-30px, 0);
+    transform: rotate(0) translate(-40px, 0);
   }
   1000% {
     opacity: 1;

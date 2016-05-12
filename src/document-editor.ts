@@ -33,6 +33,7 @@ module NgDocument {
 
         get headerConfig(): any {
             return angular.extend(this.headerOptions || {}, {
+                iframe: true,
                 placeholderText: 'Header',
                 width: 816,
                 toolbarContainer: `#${this.toolbarId}`,
@@ -76,6 +77,7 @@ module NgDocument {
 
         get contentConfig(): any {
             return angular.extend(this.contentOptions || {}, {
+                iframe: true,
                 placeholderText: 'Content',
                 width: 816,
                 toolbarContainer: `#${this.toolbarId}`,
@@ -118,6 +120,7 @@ module NgDocument {
 
         get footerConfig(): any {
             return angular.extend(this.footerOptions || {}, {
+                iframe: true,
                 placeholderText: 'Footer',
                 width: 816,
                 toolbarContainer: `#${this.toolbarId}`,
