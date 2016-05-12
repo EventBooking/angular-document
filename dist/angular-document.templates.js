@@ -20,13 +20,13 @@ module.run(['$templateCache', function($templateCache) {
     '        </span>\n' +
     '    </div>\n' +
     '    <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--editors">\n' +
-    '        <div class="document-editor-wysiwyg-content-item" ng-show="documentEditor.withHeader">\n' +
+    '        <div class="document-editor-wysiwyg-content-item" ng-class="{\'document-editor-wysiwyg-content-item--hidden\': !documentEditor.withHeader}">\n' +
     '            <textarea class="document-editor-header" froala="documentEditor.headerConfig" ng-model="documentEditor.header"></textarea>\n' +
     '        </div>\n' +
     '        <div class="document-editor-wysiwyg-content-item">\n' +
     '            <textarea class="document-editor-content" froala="documentEditor.contentConfig" ng-model="documentEditor.content"></textarea>\n' +
     '        </div>\n' +
-    '        <div class="document-editor-wysiwyg-content-item" ng-show="documentEditor.withFooter">\n' +
+    '        <div class="document-editor-wysiwyg-content-item" ng-class="{\'document-editor-wysiwyg-content-item--hidden\': !documentEditor.withFooter}">\n' +
     '            <textarea class="document-editor-footer" froala="documentEditor.footerConfig" ng-model="documentEditor.footer"></textarea>\n' +
     '        </div>\n' +
     '    </div>\n' +

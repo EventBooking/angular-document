@@ -109,7 +109,10 @@ document-editor {
 .document-editor-wysiwyg-content-item {
   padding: 5px;
 }
-.document-editor-wysiwyg-content-item + .document-editor-wysiwyg-content-item {
+.document-editor-wysiwyg-content-item--hidden {
+  display: none;
+}
+.document-editor-wysiwyg-content-item:not(.document-editor-wysiwyg-content-item--hidden) + .document-editor-wysiwyg-content-item {
   margin-top: 1em;
 }
 .document-editor-sidebar-content {

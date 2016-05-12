@@ -71,7 +71,11 @@ document-editor {
 .document-editor-wysiwyg-content-item {
     padding: 5px;
     
-    & + & {
+    &--hidden {
+        display: none;
+    }
+    
+    &:not(.document-editor-wysiwyg-content-item--hidden) + & {
         margin-top: 1em;
     }
 }
