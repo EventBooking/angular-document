@@ -74,6 +74,9 @@ document-editor {
             transform: translateY(0);
   }
 }
+.document-editor-wysiwyg-content {
+  box-sizing: content-box;
+}
 .document-editor-wysiwyg-content--editors {
   overflow: auto;
 }

@@ -17,7 +17,8 @@
     "jquery": "~2.2.3",
     "angular": "^1.4.8",
     "angular-froala": "~2.2.4",
-    "pdfjs-dist": "~1.5.232"
+    "pdfjs-dist": "~1.5.232",
+    "normalize-css": "~4.1.1"
   },
   "devDependencies": {
     "angular-typescript-module": "https://github.com/EventBooking/angular-typescript-module.git#^v1.0.3"
