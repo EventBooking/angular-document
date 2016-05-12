@@ -12,13 +12,13 @@
         </span>
     </div>
     <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--editors">
-        <div class="document-editor-wysiwyg-content-item" ng-class="{'document-editor-wysiwyg-content-item--hidden': !documentEditor.withHeader}">
+        <div class="document-editor-wysiwyg-content-item document-editor-wysiwyg-content-item--header" ng-class="{'document-editor-wysiwyg-content-item--hidden': !documentEditor.withHeader}">
             <textarea class="document-editor-header" froala="documentEditor.headerConfig" ng-model="documentEditor.header"></textarea>
         </div>
         <div class="document-editor-wysiwyg-content-item">
             <textarea class="document-editor-content" froala="documentEditor.contentConfig" ng-model="documentEditor.content"></textarea>
         </div>
-        <div class="document-editor-wysiwyg-content-item" ng-class="{'document-editor-wysiwyg-content-item--hidden': !documentEditor.withFooter}">
+        <div class="document-editor-wysiwyg-content-item document-editor-wysiwyg-content-item--footer" ng-class="{'document-editor-wysiwyg-content-item--hidden': !documentEditor.withFooter}">
             <textarea class="document-editor-footer" froala="documentEditor.footerConfig" ng-model="documentEditor.footer"></textarea>
         </div>
     </div>

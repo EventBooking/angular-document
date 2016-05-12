@@ -38,14 +38,11 @@ document-editor {
     &--toolbar {
         position: relative;
     }
-    
-    & + & {
-        margin-top: 1em;
-    }
 }
 
 .document-editor-wysiwyg-content-add {
     text-align: center;
+    padding: 1em;
 }
 
 .document-editor-wysiwyg-content-add-button {
@@ -75,8 +72,12 @@ document-editor {
         display: none;
     }
     
-    &:not(.document-editor-wysiwyg-content-item--hidden) + & {
-        margin-top: 1em;
+    &--header {
+        padding-top: 1em;
+    }
+    
+    &--footer {
+        padding-bottom: 1em;
     }
 }
 
