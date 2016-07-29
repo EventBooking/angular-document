@@ -35,6 +35,7 @@ module NgDocument {
             return angular.extend(this.headerOptions || {}, {
                 iframe: true,
                 placeholderText: 'Header',
+                enter: $['FroalaEditor'].ENTER_BR,
                 width: 816,
                 toolbarContainer: `#${this.toolbarId}`,
                 toolbarButtons: [
@@ -79,6 +80,7 @@ module NgDocument {
             return angular.extend(this.contentOptions || {}, {
                 iframe: true,
                 placeholderText: 'Content',
+                enter: $['FroalaEditor'].ENTER_BR,
                 width: 816,
                 toolbarContainer: `#${this.toolbarId}`,
                 toolbarButtons: [
@@ -122,6 +124,7 @@ module NgDocument {
             return angular.extend(this.footerOptions || {}, {
                 iframe: true,
                 placeholderText: 'Footer',
+                enter: $['FroalaEditor'].ENTER_BR,
                 width: 816,
                 toolbarContainer: `#${this.toolbarId}`,
                 toolbarButtons: [
@@ -160,6 +163,10 @@ module NgDocument {
                     }
                 }
             });
+        }
+
+        get styles(): string {
+            return "p { margin: 0 }";
         }
 
         private _html: string;
