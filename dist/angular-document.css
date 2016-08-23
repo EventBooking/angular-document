@@ -227,6 +227,13 @@ document-editor .fr-wrapper:not(.show-placeholder) .fr-placeholder {
             transform: rotate(0) translate(0, 0);
   }
 }
+.fr-no-borders {
+  border-style: none;
+}
+.fr-view table.fr-no-borders td,
+.fr-view table.fr-no-borders th {
+  border-style: none;
+}
 document-pdf {
   display: -webkit-box;
   display: -webkit-flex;

@@ -172,3 +172,17 @@ document-editor {
     transform: rotate(0) translate(0, 0);
   }
 }
+
+// Custom Styles
+.fr-no-borders {
+    border-style: none;
+}
+
+.fr-no-borders {
+    .fr-view table& {
+        & td,
+        & th {
+            border-style: none;
+        }
+    }
+}

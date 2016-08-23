@@ -37,10 +37,14 @@ module NgDocument {
                 placeholderText: 'Header',
                 enter: $['FroalaEditor'].ENTER_BR,
                 width: 816,
+                tableStyles: {
+                    'fr-no-borders': 'No Borders',
+                    'fr-alternate-rows': 'Alternate Rows'
+                },
                 toolbarContainer: `#${this.toolbarId}`,
                 toolbarButtons: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle', 
+                    'color', 'inlineStyle', 'paragraphStyle',
                     //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html',
@@ -82,6 +86,10 @@ module NgDocument {
                 placeholderText: 'Content',
                 enter: $['FroalaEditor'].ENTER_BR,
                 width: 816,
+                tableStyles: {
+                    'fr-no-borders': 'No Borders',
+                    'fr-alternate-rows': 'Alternate Rows'
+                },
                 toolbarContainer: `#${this.toolbarId}`,
                 toolbarButtons: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
@@ -126,10 +134,14 @@ module NgDocument {
                 placeholderText: 'Footer',
                 enter: $['FroalaEditor'].ENTER_BR,
                 width: 816,
+                tableStyles: {
+                    'fr-no-borders': 'No Borders',
+                    'fr-alternate-rows': 'Alternate Rows'
+                },
                 toolbarContainer: `#${this.toolbarId}`,
                 toolbarButtons: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle', 
+                    'color', 'inlineStyle', 'paragraphStyle',
                     //'-',
                     'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
                     'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html',
