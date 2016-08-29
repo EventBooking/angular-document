@@ -5,13 +5,65 @@ module NgDocument {
             this.header = this.header || '';
             this.content = this.content || '';
             this.footer = this.footer || '';
-            this.headerOptions = this.headerOptions || {};
-            this.contentOptions = this.contentOptions || {};
-            this.footerOptions = this.footerOptions || {};
         }
 
-        onPreInit(toolbarId) {
-            this.toolbarId = toolbarId;
+        onPreInit(editor, toolbarId) {
+            this.defaultOptions = {
+                iframe: true,
+                enter: editor.ENTER_BR,
+                width: 816,
+                toolbarContainer: `#${toolbarId}`,
+                tableStyles: {
+                    'fr-no-borders': 'No Borders',
+                    'fr-alternate-rows': 'Alternate Rows'
+                },
+                fontFamily: {
+                    "'Source Serif Pro', serif": "Serif",
+                    "'Source Sans Pro', sans-serif": "Sans Serif",
+                    "'Source Code Pro', monospace": "Monospace"
+                },
+                fontFamilyDefaultSelection: "Serif",
+                fontFamilySelection: true,
+                iframeStyle: "body{font-family:'Source Serif Pro',serif;}",
+                toolbarButtons: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle',
+                    //'-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
+                ],
+                toolbarButtonsMD: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle',
+                    //'-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
+                ],
+                toolbarButtonsSM: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle',
+                    //'-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
+                ],
+                toolbarButtonsXS: [
+                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                    'color', 'inlineStyle', 'paragraphStyle',
+                    //'-',
+                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
+                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
+                ],
+                events: {
+                    'froalaEditor.image.beforeUpload': (e, editor, images) => {
+                        this.insertBase64Image(editor, images[0]);
+                        return false;
+                    }
+                }
+            };
+
+            this.headerConfig = this.getHeaderConfig(this.headerOptions || {});
+            this.contentConfig = this.getContentConfig(this.contentOptions || {});
+            this.footerConfig = this.getFooterConfig(this.footerOptions || {});
         }
 
         onInit() {
@@ -31,154 +83,32 @@ module NgDocument {
             reader.readAsDataURL(image);
         }
 
-        get headerConfig(): any {
-            return angular.extend(this.headerOptions || {}, {
-                iframe: true,
-                placeholderText: 'Header',
-                enter: $['FroalaEditor'].ENTER_BR,
-                width: 816,
-                tableStyles: {
-                    'fr-no-borders': 'No Borders',
-                    'fr-alternate-rows': 'Alternate Rows'
-                },
-                toolbarContainer: `#${this.toolbarId}`,
-                toolbarButtons: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html',
-                    '|', 'removeHeader'
-                ],
-                toolbarButtonsMD: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeHeader',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
-                ],
-                toolbarButtonsSM: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeHeader',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
-                ],
-                toolbarButtonsXS: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeHeader',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
-                ],
-                events: {
-                    'froalaEditor.image.beforeUpload': (e, editor, images) => {
-                        this.insertBase64Image(editor, images[0]);
-                        return false;
-                    }
-                }
+        getHeaderConfig(options: any): any {
+            var config = angular.extend({}, this.defaultOptions, options, {
+                placeholderText: 'Header'
+            });
+
+            var toolbars = ['toolbarButtons', 'toolbarButtonsMD', 'toolbarButtonsSM', 'toolbarButtonsXS'];
+            toolbars.forEach(x => config[x] = config[x].concat(['|', 'removeHeader']));
+
+            return config;
+        }
+
+        getContentConfig(options: any): any {
+            return angular.extend({}, this.defaultOptions, options, {
+                placeholderText: 'Content'
             });
         }
 
-        get contentConfig(): any {
-            return angular.extend(this.contentOptions || {}, {
-                iframe: true,
-                placeholderText: 'Content',
-                enter: $['FroalaEditor'].ENTER_BR,
-                width: 816,
-                tableStyles: {
-                    'fr-no-borders': 'No Borders',
-                    'fr-alternate-rows': 'Alternate Rows'
-                },
-                toolbarContainer: `#${this.toolbarId}`,
-                toolbarButtons: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
-                ],
-                toolbarButtonsMD: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
-                ],
-                toolbarButtonsSM: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
-                ],
-                toolbarButtonsXS: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
-                ],
-                events: {
-                    'froalaEditor.image.beforeUpload': (e, editor, images) => {
-                        this.insertBase64Image(editor, images[0]);
-                        return false;
-                    }
-                }
+        getFooterConfig(options: any): any {
+            var config = angular.extend({}, this.defaultOptions, options, {
+                placeholderText: 'Footer'
             });
-        }
 
-        get footerConfig(): any {
-            return angular.extend(this.footerOptions || {}, {
-                iframe: true,
-                placeholderText: 'Footer',
-                enter: $['FroalaEditor'].ENTER_BR,
-                width: 816,
-                tableStyles: {
-                    'fr-no-borders': 'No Borders',
-                    'fr-alternate-rows': 'Alternate Rows'
-                },
-                toolbarContainer: `#${this.toolbarId}`,
-                toolbarButtons: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html',
-                    '|', 'removeFooter'
-                ],
-                toolbarButtonsMD: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeFooter',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
-                ],
-                toolbarButtonsSM: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeFooter',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
-                ],
-                toolbarButtonsXS: [
-                    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
-                    'color', 'inlineStyle', 'paragraphStyle', '|', 'removeFooter',
-                    //'-',
-                    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|',
-                    'insertHR', 'insertLink', 'insertImage', 'insertTable', 'undo', 'redo', 'clearFormatting', 'html'
-                ],
-                events: {
-                    'froalaEditor.image.beforeUpload': (e, editor, images) => {
-                        this.insertBase64Image(editor, images[0]);
-                        return false;
-                    }
-                }
-            });
-        }
+            var toolbars = ['toolbarButtons', 'toolbarButtonsMD', 'toolbarButtonsSM', 'toolbarButtonsXS'];
+            toolbars.forEach(x => config[x] = config[x].concat(['|', 'removeFooter']));
 
-        get styles(): string {
-            return "p { margin: 0 }";
+            return config;
         }
 
         private _html: string;
@@ -205,10 +135,14 @@ module NgDocument {
             this.footer = parser.getFooter();
         }
 
-        toolbarId: string;
         headerOptions: any;
         contentOptions: any;
         footerOptions: any;
+        defaultOptions: any;
+        headerConfig: any;
+        contentConfig: any;
+        footerConfig: any;
+
         initialized: boolean;
         header: string;
         content: string;
@@ -337,7 +271,7 @@ module NgDocument {
                     }
                 });
 
-                $ctrl.onPreInit(toolbarId);
+                $ctrl.onPreInit(editor, toolbarId);
             },
             post: ($scope, $element, $attrs, $ctrl: DocumentEditorController) => {
 
