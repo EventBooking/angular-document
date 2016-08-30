@@ -240,15 +240,6 @@ document-editor .fr-wrapper:not(.show-placeholder) .fr-placeholder {
   background: linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
   border-color: rgba(0, 0, 0, 0.15);
 }
-@media print {
-  .fr-view .fr-page-break {
-    height: 0;
-    margin: 0;
-    border: none;
-    background: none;
-    page-break-before: always;
-  }
-}
 document-pdf {
   display: -webkit-box;
   display: -webkit-flex;
