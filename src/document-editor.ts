@@ -95,9 +95,14 @@ module NgDocument {
         }
 
         getContentConfig(options: any): any {
-            return angular.extend({}, this.defaultOptions, options, {
+            var config = angular.extend({}, this.defaultOptions, options, {
                 placeholderText: 'Content'
             });
+
+            var toolbars = ['toolbarButtons', 'toolbarButtonsMD', 'toolbarButtonsSM', 'toolbarButtonsXS'];
+            toolbars.forEach(x => config[x] = config[x].concat(['pageBreak']));
+
+            return config;
         }
 
         getFooterConfig(options: any): any {
@@ -271,6 +276,18 @@ module NgDocument {
                     }
                 });
 
+                editor.DefineIcon('pageBreak', { NAME: 'columns' });
+                editor.RegisterCommand('pageBreak', {
+                    title: 'Page Break',
+                    undo: true,
+                    focus: true,
+                    refreshAfterCallback: true,
+                    callback: function (editor) {
+                        this.html.insert('<hr class="fr-page-break">');
+                        $scope.$apply();
+                    }
+                });
+
                 $ctrl.onPreInit(editor, toolbarId);
             },
             post: ($scope, $element, $attrs, $ctrl: DocumentEditorController) => {
@@ -280,7 +297,6 @@ module NgDocument {
                 var $footer: any = $('.document-editor-footer', $element);
 
                 $header.froalaEditor('toolbar.hide');
-                //$content.froalaEditor('toolbar.hide');
                 $footer.froalaEditor('toolbar.hide');
 
                 $header.on('froalaEditor.focus', (e, editor) => {

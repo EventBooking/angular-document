@@ -12,7 +12,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
 
-    <script src="bower_components/pdfjs-dist/build/pdf.combined.js" ></script>
+    <script src="bower_components/pdfjs-dist/build/pdf.combined.js"></script>
     <script src="bower_components/froala-wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
     <script src="bower_components/angular-froala/src/angular-froala.js"></script>
     <script src="bower_components/angular-typescript-module/dist/angular-typescript-module.js"></script>
@@ -36,7 +36,12 @@
         <div class="sidebar">
             <button ng-click="toggleEditor(false)">close editor</button>
             <div froala-view="html"></div>
-            <code>{{html}}</code>
+            <div>
+                <button ng-click="copyToClipboard(html)">Copy To Clipboard</button>
+            </div>
+            <div>
+                <code>{{html}}</code>
+            </div>
         </div>
     </document-editor>
 

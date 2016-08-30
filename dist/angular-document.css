@@ -228,12 +228,26 @@ document-editor .fr-wrapper:not(.show-placeholder) .fr-placeholder {
             transform: rotate(0) translate(0, 0);
   }
 }
-.fr-no-borders {
-  border-style: none;
-}
 .fr-view table.fr-no-borders td,
 .fr-view table.fr-no-borders th {
   border-style: none;
+}
+.fr-view .fr-page-break {
+  height: 6px;
+  margin: 8px -8px;
+  border-style: solid none;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
+  background: linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
+  border-color: rgba(0, 0, 0, 0.15);
+}
+@media print {
+  .fr-view .fr-page-break {
+    height: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    page-break-before: always;
+  }
 }
 document-pdf {
   display: -webkit-box;
