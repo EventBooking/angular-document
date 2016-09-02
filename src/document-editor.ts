@@ -24,6 +24,7 @@ module NgDocument {
                 },
                 fontFamilyDefaultSelection: "Serif",
                 fontFamilySelection: true,
+                fontSizeSelection: true,
                 iframeStyle: "body{font-family:'Source Serif Pro',serif;}",
                 toolbarButtons: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
@@ -156,80 +157,6 @@ module NgDocument {
         withFooter: boolean;
     }
 
-    interface IDocumentWriterOptions {
-        excludeHeader: boolean;
-        excludeFooter: boolean;
-    }
-
-    interface IDocumentWriter {
-        write(): string;
-    }
-
-    class DocumentWriter implements IDocumentWriter {
-        constructor(header: string, content: string, footer: string) {
-            this._header = header;
-            this._content = content;
-            this._footer = footer;
-        }
-
-        get hasHeader(): boolean {
-            return this._header != null && this._header.length > 0;
-        }
-
-        get hasFooter(): boolean {
-            return this._footer != null && this._footer.length > 0;
-        }
-
-        write(options?: IDocumentWriterOptions): string {
-            var html = [];
-
-            if (this.hasHeader && !options.excludeHeader)
-                html.push(`<header>${this._header}</header>`);
-
-            html.push(`<content>${this._content}</content>`);
-
-            if (this.hasFooter && !options.excludeFooter)
-                html.push(`<footer>${this._footer}</footer>`);
-
-            return html.join("");
-        }
-
-        private _header: string;
-        private _content: string;
-        private _footer: string;
-    }
-
-    interface IDocumentReader {
-        getHeader(): string;
-        getContent(): string;
-        getFooter(): string;
-    }
-
-    class DocumentReader implements IDocumentReader {
-        constructor(html: string) {
-            this._$html = $('<div></div>').append(html || '');
-        }
-
-        private _$html: JQuery;
-
-        getHeader(): string {
-            return this.child('header');
-        }
-
-        getContent(): string {
-            // ToDo: if <content></content> does not exist but there is html, wrap the html in a content tag
-            return this.child('content');
-        }
-
-        getFooter(): string {
-            return this.child('footer');
-        }
-
-        private child(selector: string): string {
-            return this._$html.children(selector).html() || '';
-        }
-    }
-
     class DocumentEditorDirective {
         restrict = 'E';
         transclude = true;
@@ -287,6 +214,12 @@ module NgDocument {
                         $scope.$apply();
                     }
                 });
+
+                var PLUGINS = $['FroalaEditor'].PLUGINS;
+                PLUGINS.orderedListPlugin = (editor) => new OrderedListPlugin(editor, $scope);
+
+                var _fontSize = PLUGINS.fontSize;
+                PLUGINS.fontSize = (editor) => new FontSizePlugin(editor, _fontSize(editor));
 
                 $ctrl.onPreInit(editor, toolbarId);
             },

@@ -12,6 +12,10 @@
     "files": [
         "../typings/browser.d.ts",
         "app.ts",
+        "ordered-list-plugin.ts",
+        "font-size-plugin.ts",
+        "document-reader.ts",
+        "document-writer.ts",
         "document-editor.ts",
         "document-pdf.ts"
     ]
