@@ -4,7 +4,6 @@ module NgDocument {
         }
 
         apply(value) {
-            console.log('apply', value);
             var ranges = this.editor.selection.ranges(),
                 hasRanges = ranges.filter( x => !x.collapsed ).length > 0;
 
