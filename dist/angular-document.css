@@ -240,6 +240,10 @@ document-editor .fr-wrapper:not(.show-placeholder) .fr-placeholder {
   background: linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
   border-color: rgba(0, 0, 0, 0.15);
 }
+.fr-view ol,
+.fr-view ul {
+  margin: 0;
+}
 .fr-view .listType-decimal {
   list-style-type: decimal;
 }
