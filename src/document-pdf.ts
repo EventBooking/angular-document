@@ -12,11 +12,15 @@ module NgDocument {
         _render: any;
         render(url) {
             this.isLoading = true;
-            this._render(url).finally(() => this.isLoading = false);
+            this._render(url).finally(() => {
+                this.isLoading = false
+                this.isLoaded = true;
+            });
         }
 
         initialized: boolean;
         isLoading: boolean;
+        isLoaded: boolean;
 
         private _url: string;
         get url(): string {
@@ -44,7 +48,8 @@ module NgDocument {
         controllerAs = 'documentPdf';
         bindToController = true;
         scope = {
-            url: '@'
+            url: '@',
+            isLoaded: '?='
         }
 
         link = ($scope, $element, $attrs, $ctrl: DocumentPdfController) => {
