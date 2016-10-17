@@ -49,7 +49,7 @@ module NgDocument {
         bindToController = true;
         scope = {
             url: '@',
-            isLoaded: '?='
+            isLoaded: '=?'
         }
 
         link = ($scope, $element, $attrs, $ctrl: DocumentPdfController) => {
