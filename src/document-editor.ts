@@ -159,11 +159,6 @@ module NgDocument {
     }
 
     class DocumentEditorDirective {
-        static $inject = ['$document'];
-
-        constructor(private $document: angular.IDocumentService) {
-        }
-
         restrict = 'E';
         transclude = true;
         templateUrl = 'document-editor.html';
@@ -179,9 +174,6 @@ module NgDocument {
 
         link = {
             pre: ($scope, $element, $attrs, $ctrl: DocumentEditorController) => {
-                var $body = this.$document.find('body');
-                $body.append($element);
-
                 var toolbarId = `document-editor-${$scope.$id}-wysiwyg-toolbar`;
                 var $toolbar = $element.find(".document-editor-wysiwyg-toolbar");
                 $toolbar.prop('id', toolbarId);

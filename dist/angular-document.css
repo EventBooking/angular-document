@@ -19,8 +19,7 @@
             transform: translateX(0);
   }
 }
-document-editor,
-.document-editor {
+document-editor {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
