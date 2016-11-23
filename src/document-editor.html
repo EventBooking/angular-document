@@ -1,37 +1,39 @@
-<div class="document-editor-wysiwyg">
-    <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--toolbar">
-        <div class="document-editor-wysiwyg-toolbar"></div>
-    </div>    
-    <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content-add" ng-if="!documentEditor.withHeader">
-        <span class="document-editor-wysiwyg-content-add-button" ng-click="documentEditor.withHeader = true">
+<div class="document-editor">
+    <div class="document-editor-wysiwyg">
+        <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--toolbar">
+            <div class="document-editor-wysiwyg-toolbar"></div>
+        </div>
+        <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content-add" ng-if="!documentEditor.withHeader">
+            <span class="document-editor-wysiwyg-content-add-button" ng-click="documentEditor.withHeader = true">
             <span class="fa-stack fa-lg">
                 <i class="fa fa-circle-thin fa-stack-2x"></i>
                 <i class="fa fa-plus fa-stack-1x"></i>
             </span>
             <span>Header</span>
-        </span>
-    </div>
-    <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--editors">
-        <div class="document-editor-wysiwyg-content-item document-editor-wysiwyg-content-item--header" ng-class="{'document-editor-wysiwyg-content-item--hidden': !documentEditor.withHeader}">
-            <textarea class="document-editor-header" froala="documentEditor.headerConfig" ng-model="documentEditor.header"></textarea>
+            </span>
         </div>
-        <div class="document-editor-wysiwyg-content-item">
-            <textarea class="document-editor-content" froala="documentEditor.contentConfig" ng-model="documentEditor.content"></textarea>
+        <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--editors">
+            <div class="document-editor-wysiwyg-content-item document-editor-wysiwyg-content-item--header" ng-class="{'document-editor-wysiwyg-content-item--hidden': !documentEditor.withHeader}">
+                <textarea class="document-editor-header" froala="documentEditor.headerConfig" ng-model="documentEditor.header"></textarea>
+            </div>
+            <div class="document-editor-wysiwyg-content-item">
+                <textarea class="document-editor-content" froala="documentEditor.contentConfig" ng-model="documentEditor.content"></textarea>
+            </div>
+            <div class="document-editor-wysiwyg-content-item document-editor-wysiwyg-content-item--footer" ng-class="{'document-editor-wysiwyg-content-item--hidden': !documentEditor.withFooter}">
+                <textarea class="document-editor-footer" froala="documentEditor.footerConfig" ng-model="documentEditor.footer"></textarea>
+            </div>
         </div>
-        <div class="document-editor-wysiwyg-content-item document-editor-wysiwyg-content-item--footer" ng-class="{'document-editor-wysiwyg-content-item--hidden': !documentEditor.withFooter}">
-            <textarea class="document-editor-footer" froala="documentEditor.footerConfig" ng-model="documentEditor.footer"></textarea>
-        </div>
-    </div>
-    <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content-add" ng-if="!documentEditor.withFooter">
-        <span class="document-editor-wysiwyg-content-add-button" ng-click="documentEditor.withFooter = true">
+        <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content-add" ng-if="!documentEditor.withFooter">
+            <span class="document-editor-wysiwyg-content-add-button" ng-click="documentEditor.withFooter = true">
             <span class="fa-stack fa-lg">
                 <i class="fa fa-circle-thin fa-stack-2x"></i>
                 <i class="fa fa-plus fa-stack-1x"></i>
             </span>
-            <span>Footer</span> 
-        </span>
+            <span>Footer</span>
+            </span>
+        </div>
     </div>
-</div>
-<div class="document-editor-sidebar">
-    <div class="document-editor-sidebar-content" ng-transclude></div>
+    <div class="document-editor-sidebar">
+        <div class="document-editor-sidebar-content" ng-transclude></div>
+    </div>
 </div>

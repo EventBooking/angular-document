@@ -16,3 +16,7 @@ body {
     width: 400px;
     padding: 1em;
 }
+
+.style-test {
+  text-align: center;
+}

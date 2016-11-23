@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro|Source+Serif+Pro");
 
-document-editor {
+.document-editor {
     display: flex;
     position: fixed;
     background-color: @document-editor-backgroundColor;
@@ -100,7 +100,7 @@ document-editor {
         box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     }
     
-    document-editor & {
+    .document-editor & {
         .fr-box.fr-basic.fr-top & {
             box-shadow: 0 0 0 0.75pt @document-editor-boxShadow-color1, 0 0 3pt 0.75pt @document-editor-boxShadow-color2;
             border-radius: 0;
@@ -110,7 +110,7 @@ document-editor {
 }
 
 .fr-toolbar {
-    document-editor & {
+    .document-editor & {
         border-top: 0;
         display: flex;
         justify-content: center;
@@ -119,7 +119,7 @@ document-editor {
 }
 
 .fr-box {
-    document-editor & {
+    .document-editor & {
         margin: 0 auto;
         
         &.fr-basic.fr-top {
@@ -130,23 +130,23 @@ document-editor {
 }
 
 .fr-view {
-    document-editor & {
+    .document-editor & {
         // padding: 0 1rem;
     }
 }
 
 .fr-placeholder {
-    document-editor .fr-wrapper & {
+    .document-editor .fr-wrapper & {
         display: block;
     }
     
-    document-editor .fr-wrapper.show-placeholder & {
+    .document-editor .fr-wrapper.show-placeholder & {
         animation: placeholder-in .3s;
         top: 10px;
         left: 10px;
     }
     
-    document-editor .fr-wrapper:not(.show-placeholder) & {
+    .document-editor .fr-wrapper:not(.show-placeholder) & {
         transform: rotate(270deg) translate(-40px, -25px);
 	    transform-origin: 0 top;
         animation: placeholder-out .3s;

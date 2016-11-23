@@ -32,18 +32,20 @@
         </div>
     </document-pdf>
 
-    <document-editor html="html" ng-if="showEditor">
-        <div class="sidebar">
-            <button ng-click="toggleEditor(false)">close editor</button>
-            <div froala-view="html"></div>
-            <div>
-                <button ng-click="copyToClipboard(html)">Copy To Clipboard</button>
+    <div class="style-test">
+        <document-editor html="html" ng-if="showEditor">
+            <div class="sidebar">
+                <button ng-click="toggleEditor(false)">close editor</button>
+                <div froala-view="html"></div>
+                <div>
+                    <button ng-click="copyToClipboard(html)">Copy To Clipboard</button>
+                </div>
+                <div>
+                    <code>{{html}}</code>
+                </div>
             </div>
-            <div>
-                <code>{{html}}</code>
-            </div>
-        </div>
-    </document-editor>
+        </document-editor>
+    </div>
 
     <script src="demo.js"></script>
 </body>

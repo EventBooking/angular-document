@@ -19,7 +19,7 @@
             transform: translateX(0);
   }
 }
-document-editor {
+.document-editor {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -131,11 +131,11 @@ document-editor {
   border: solid 1px #ccc;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
-.fr-box.fr-basic.fr-top document-editor .fr-wrapper {
+.fr-box.fr-basic.fr-top .document-editor .fr-wrapper {
   box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
   border-radius: 0;
 }
-document-editor .fr-toolbar {
+.document-editor .fr-toolbar {
   border-top: 0;
   display: -webkit-box;
   display: -webkit-flex;
@@ -149,10 +149,10 @@ document-editor .fr-toolbar {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
 }
-document-editor .fr-box {
+.document-editor .fr-box {
   margin: 0 auto;
 }
-document-editor .fr-box.fr-basic.fr-top {
+.document-editor .fr-box.fr-basic.fr-top {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -163,16 +163,16 @@ document-editor .fr-box.fr-basic.fr-top {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-document-editor .fr-wrapper .fr-placeholder {
+.document-editor .fr-wrapper .fr-placeholder {
   display: block;
 }
-document-editor .fr-wrapper.show-placeholder .fr-placeholder {
+.document-editor .fr-wrapper.show-placeholder .fr-placeholder {
   -webkit-animation: placeholder-in 0.3s;
           animation: placeholder-in 0.3s;
   top: 10px;
   left: 10px;
 }
-document-editor .fr-wrapper:not(.show-placeholder) .fr-placeholder {
+.document-editor .fr-wrapper:not(.show-placeholder) .fr-placeholder {
   -webkit-transform: rotate(270deg) translate(-40px, -25px);
           transform: rotate(270deg) translate(-40px, -25px);
   -webkit-transform-origin: 0 top;

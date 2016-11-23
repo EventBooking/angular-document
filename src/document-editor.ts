@@ -7,12 +7,12 @@ module NgDocument {
             this.footer = this.footer || '';
         }
 
-        onPreInit(editor, toolbarId) {
+        onPreInit(editor) {
             this.defaultOptions = {
                 iframe: true,
                 enter: editor.ENTER_BR,
                 width: 816,
-                toolbarContainer: `#${toolbarId}`,
+                toolbarContainer: `#${this.toolbarId}`,
                 tableStyles: {
                     'fr-no-borders': 'No Borders',
                     'fr-alternate-rows': 'Alternate Rows'
@@ -151,6 +151,7 @@ module NgDocument {
         footerConfig: any;
 
         initialized: boolean;
+        toolbarId: string;
         header: string;
         content: string;
         footer: string;
@@ -173,90 +174,120 @@ module NgDocument {
         }
 
         link = {
-            pre: ($scope, $element, $attrs, $ctrl: DocumentEditorController) => {
-                var toolbarId = `document-editor-${$scope.$id}-wysiwyg-toolbar`;
-                var $toolbar = $element.find(".document-editor-wysiwyg-toolbar");
-                $toolbar.prop('id', toolbarId);
-
+            pre: ($scope: angular.IScope, $element: angular.IAugmentedJQuery, $attrs: angular.IAttributes, $ctrl: DocumentEditorController) => {
                 var editor: any = $['FroalaEditor'];
 
-                editor.DefineIcon('removeHeader', { NAME: 'times-circle' });
-                editor.RegisterCommand('removeHeader', {
-                    title: 'Remove Header',
-                    undo: true,
-                    focus: true,
-                    refreshAfterCallback: true,
-                    callback: (editor) => {
-                        $ctrl.withHeader = false;
-                        $scope.$apply();
-                    }
-                });
+                this.initElement($element);
+                this.initToolbar($ctrl, $scope, $element);
+                this.initCommands(editor, $ctrl, $scope);
+                this.initPlugins(editor.PLUGINS, $scope);
 
-                editor.DefineIcon('removeFooter', { NAME: 'times-circle' });
-                editor.RegisterCommand('removeFooter', {
-                    title: 'Remove Footer',
-                    undo: true,
-                    focus: true,
-                    refreshAfterCallback: true,
-                    callback: (editor) => {
-                        $ctrl.withFooter = false;
-                        $scope.$apply();
-                    }
-                });
-
-                editor.DefineIcon('pageBreak', { NAME: 'columns' });
-                editor.RegisterCommand('pageBreak', {
-                    title: 'Page Break',
-                    undo: true,
-                    focus: true,
-                    refreshAfterCallback: true,
-                    callback: function (editor) {
-                        this.html.insert('<hr class="fr-page-break">');
-                        $scope.$apply();
-                    }
-                });
-
-                var PLUGINS = $['FroalaEditor'].PLUGINS;
-                PLUGINS.orderedListPlugin = (editor) => new OrderedListPlugin(editor, $scope);
-
-                var _fontSize = PLUGINS.fontSize;
-                PLUGINS.fontSize = (editor) => new FontSizePlugin(editor, _fontSize(editor));
-
-                $ctrl.onPreInit(editor, toolbarId);
+                $ctrl.onPreInit(editor);
             },
             post: ($scope, $element, $attrs, $ctrl: DocumentEditorController) => {
+                var $container = $element;
+                var $header: any = $container.find('.document-editor-header');
+                var $content: any = $container.find('.document-editor-content');
+                var $footer: any = $container.find('.document-editor-footer');
 
-                var $header: any = $('.document-editor-header', $element);
-                var $content: any = $('.document-editor-content', $element);
-                var $footer: any = $('.document-editor-footer', $element);
-
-                $header.froalaEditor('toolbar.hide');
-                $footer.froalaEditor('toolbar.hide');
-
-                $header.on('froalaEditor.focus', (e, editor) => {
-                    editor.toolbar.show();
-                    $content.froalaEditor('toolbar.hide');
-                    $footer.froalaEditor('toolbar.hide');
-                });
-
-                $content.on('froalaEditor.focus', (e, editor) => {
-                    $header.froalaEditor('toolbar.hide');
-                    editor.toolbar.show();
-                    $footer.froalaEditor('toolbar.hide');
-                });
-
-                $footer.on('froalaEditor.focus', (e, editor) => {
-                    $header.froalaEditor('toolbar.hide');
-                    $content.froalaEditor('toolbar.hide');
-                    editor.toolbar.show();
-                });
+                this.initHeader($header, $content, $footer);
+                this.initContent($header, $content, $footer);
+                this.initFooter($header, $content, $footer);
 
                 $ctrl.onInit();
             }
         }
 
+        $documentEditor: angular.IAugmentedJQuery;
+        initElement($element: angular.IAugmentedJQuery) {
+            var $parent = $element.parent();
+            var $body = angular.element($element[0].ownerDocument.body);
+            $body.append($element);
+            
+            $parent.on("$destroy", () => {
+                $element.remove();
+            });
+        }
 
+        initToolbar($ctrl: DocumentEditorController, $scope: angular.IScope, $element: angular.IAugmentedJQuery) {
+            var toolbarId = `document-editor-${$scope.$id}-wysiwyg-toolbar`;
+            var $toolbar = $element.find(".document-editor-wysiwyg-toolbar");
+            $toolbar.prop('id', toolbarId);
+            $ctrl.toolbarId = toolbarId;
+        }
+
+        initCommands(editor, $ctrl: DocumentEditorController, $scope: angular.IScope) {
+            editor.DefineIcon('removeHeader', { NAME: 'times-circle' });
+            editor.RegisterCommand('removeHeader', {
+                title: 'Remove Header',
+                undo: true,
+                focus: true,
+                refreshAfterCallback: true,
+                callback: (editor) => {
+                    $ctrl.withHeader = false;
+                    $scope.$apply();
+                }
+            });
+
+            editor.DefineIcon('removeFooter', { NAME: 'times-circle' });
+            editor.RegisterCommand('removeFooter', {
+                title: 'Remove Footer',
+                undo: true,
+                focus: true,
+                refreshAfterCallback: true,
+                callback: (editor) => {
+                    $ctrl.withFooter = false;
+                    $scope.$apply();
+                }
+            });
+
+            editor.DefineIcon('pageBreak', { NAME: 'columns' });
+            editor.RegisterCommand('pageBreak', {
+                title: 'Page Break',
+                undo: true,
+                focus: true,
+                refreshAfterCallback: true,
+                callback: function (editor) {
+                    this.html.insert('<hr class="fr-page-break">');
+                    $scope.$apply();
+                }
+            });
+        }
+
+        initPlugins(PLUGINS, $scope) {
+            PLUGINS.orderedListPlugin = (editor) => new OrderedListPlugin(editor, $scope);
+
+            var _fontSize = PLUGINS.fontSize;
+            PLUGINS.fontSize = (editor) => new FontSizePlugin(editor, _fontSize(editor));
+        }
+
+        initHeader($header, $content, $footer) {
+            $header.froalaEditor('toolbar.hide');
+            $header.on('froalaEditor.focus', (e, editor) => {
+                editor.toolbar.show();
+                $content.froalaEditor('toolbar.hide');
+                $footer.froalaEditor('toolbar.hide');
+            });
+        }
+
+        initContent($header, $content, $footer) {
+            $content.on('froalaEditor.focus', (e, editor) => {
+                $header.froalaEditor('toolbar.hide');
+                editor.toolbar.show();
+                $footer.froalaEditor('toolbar.hide');
+            });
+        }
+
+        initFooter($header, $content, $footer) {
+            $footer.froalaEditor('toolbar.hide');
+            $footer.on('froalaEditor.focus', (e, editor) => {
+                $header.froalaEditor('toolbar.hide');
+                $content.froalaEditor('toolbar.hide');
+                editor.toolbar.show();
+            });
+        }
     }
+
 
     Angular.module("ngDocument").directive("documentEditor", DocumentEditorDirective);
 }
