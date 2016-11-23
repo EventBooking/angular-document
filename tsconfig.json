@@ -9,14 +9,10 @@
         "target": "es5",
         "out": "dist/angular-document.js"
     },
-    "files": [
-        "../typings/browser.d.ts",
-        "app.ts",
-        "ordered-list-plugin.ts",
-        "font-size-plugin.ts",
-        "document-reader.ts",
-        "document-writer.ts",
-        "document-editor.ts",
-        "document-pdf.ts"
+    "exclude": [
+        "node_modules",
+        "bower_components",
+        "typings/globals",
+        "dist"
     ]
 }

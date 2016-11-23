@@ -1,15 +1,11 @@
 module NgDocument {
-    declare var PDFJS: any;
-
     class DocumentPdfController {
-
         onInit(render) {
             this._render = render;
-            this.render(this.url);
             this.initialized = true;
         }
 
-        _render: any;
+        private _render: any;
         render(url) {
             this.isLoading = true;
             this._render(url).finally(() => {
@@ -67,8 +63,9 @@ module NgDocument {
             PDFJS.getDocument(url).then(pdf => {
 
                 var tasks = [];
-                for (let idx = 0; idx < pdf.pdfInfo.numPages; idx++) {
+                for (let idx = 0; idx < pdf.numPages; idx++) {
                     tasks.push(pdf.getPage(idx + 1).then(page => {
+                        var x = page.pageNumber;
                         return this.createPage(page);
                     }));
                 }
@@ -83,11 +80,12 @@ module NgDocument {
             return deferred.promise;
         }
 
-        createPage(page) {
+        createPage(page: PDFPageProxy) {
             var scale = 1.5;
             var viewport = page.getViewport(scale);
 
-            var $canvas = $('<canvas class="document-viewer-page"></canvas>');
+            var $canvas = angular.element('<canvas class="document-viewer-page"></canvas>');
+            $canvas.attr("page", page.pageNumber);
             var canvas: any = $canvas.get(0);
             var context = canvas.getContext('2d');
             canvas.height = viewport.height;

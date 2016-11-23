@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc -p src",
-    "tsc:w": "tsc -p src -w",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
     "build": "gulp styles && gulp html && npm run tsc",
     "rebuild": "gulp clean && npm run build",
     "start:w": "start gulp watch && start npm run tsc:w && lite-server",
@@ -23,7 +23,7 @@
     "gulp-ng-html2js": "^0.2.0",
     "gulp-template": "^3.0.0",
     "lite-server": "^2.2.0",
-    "typescript": "^1.7.3",
+    "typescript": "^1.8.9",
     "typings": "^0.8.1"
   }
 }
