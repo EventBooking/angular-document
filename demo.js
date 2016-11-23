@@ -5,8 +5,8 @@ Run.$inject = ['$rootScope'];
 
 function Run($rootScope) {
     $rootScope.html = '<header>this is the header</header><content><ol><li>Hello World</li><li>Foo</li><li>Bar</li></ol></content><footer>this is the footer</footer>';
-    $rootScope.showEditor = false;
-    $rootScope.showPdf = true;
+    $rootScope.showEditor = true;
+    $rootScope.showPdf = false;
     $rootScope.pdfUrl = 'pdf.pdf';
 
     $rootScope.toggleEditor = function (value) {

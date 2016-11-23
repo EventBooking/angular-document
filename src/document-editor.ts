@@ -26,7 +26,7 @@ module NgDocument {
                 fontFamilySelection: true,
                 fontSizeSelection: true,
                 fontSize: ["8", "9", "10", "11", "12", "14", "16", "18", "24", "30", "36", "48", "60", "72", "96"],
-                iframeStyle: "body{font-family:'Source Serif Pro',serif;}",
+                iframeStyle: "body{font-family:'Source Serif Pro',serif;overflow:hidden;}",
                 toolbarButtons: [
                     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
                     'color', 'inlineStyle', 'paragraphStyle',
