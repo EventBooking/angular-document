@@ -163,6 +163,11 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.fr-view hr {
+  -webkit-break-after: auto;
+     -moz-break-after: auto;
+          break-after: auto;
+}
 .document-editor .fr-wrapper .fr-placeholder {
   display: block;
 }
