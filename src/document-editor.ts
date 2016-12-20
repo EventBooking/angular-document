@@ -12,6 +12,7 @@ module NgDocument {
                 iframe: true,
                 enter: editor.ENTER_BR,
                 width: 816,
+                zIndex: 100,
                 toolbarContainer: `#${this.toolbarId}`,
                 tableStyles: {
                     'fr-no-borders': 'No Borders',
