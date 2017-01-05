@@ -163,11 +163,6 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.fr-view hr {
-  -webkit-break-after: auto;
-     -moz-break-after: auto;
-          break-after: auto;
-}
 .document-editor .fr-wrapper .fr-placeholder {
   display: block;
 }
@@ -244,6 +239,15 @@
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
   background: linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
   border-color: rgba(0, 0, 0, 0.15);
+}
+.fr-view hr {
+  -webkit-break-after: auto;
+     -moz-break-after: auto;
+          break-after: auto;
+}
+.fr-view p {
+  margin: 0;
+  padding: 0;
 }
 .fr-view ol,
 .fr-view ul {

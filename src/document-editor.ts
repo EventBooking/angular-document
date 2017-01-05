@@ -10,7 +10,7 @@ module NgDocument {
         onPreInit(editor) {
             this.defaultOptions = {
                 iframe: true,
-                enter: editor.ENTER_BR,
+                enter: editor.ENTER_P,
                 width: 816,
                 zIndex: 100,
                 toolbarContainer: `#${this.toolbarId}`,
