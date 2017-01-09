@@ -61,3 +61,16 @@ declare module NgDocument {
         private static TEMPLATE_NAME;
     }
 }
+declare module NgDocument {
+    class TableColWidthPlugin {
+        constructor();
+        static register(PLUGINS: any): void;
+        init(editor: any): void;
+        setColWidth(value: any): void;
+        showPopup(editor: any, cmd: any): void;
+        hidePopup(editor: any): void;
+        private editorStatic;
+        private $col;
+        private static TEMPLATE_NAME;
+    }
+}

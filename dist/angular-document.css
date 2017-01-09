@@ -228,17 +228,8 @@
             transform: rotate(0) translate(0, 0);
   }
 }
-.fr-view table.fr-no-borders td,
-.fr-view table.fr-no-borders th {
-  border-style: none;
-}
-.fr-view .fr-page-break {
-  height: 6px;
-  margin: 8px -8px;
-  border-style: solid none;
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
-  background: linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
-  border-color: rgba(0, 0, 0, 0.15);
+.fr-popup.fr-desktop.fr-active {
+  z-index: 999;
 }
 .fr-view hr {
   -webkit-break-after: auto;
@@ -252,6 +243,58 @@
 .fr-view ol,
 .fr-view ul {
   margin: 0;
+}
+.fr-view .fr-border-thick {
+  border-width: 2px;
+}
+.fr-view .fr-border-dark {
+  border-color: #555;
+}
+.fr-view .fr-no-left-border {
+  border-left-style: none;
+}
+.fr-view .fr-no-left-border:hover {
+  border-style: dotted;
+}
+.fr-view .fr-no-right-border {
+  border-right-style: none;
+}
+.fr-view .fr-no-right-border:hover {
+  border-style: dotted;
+}
+.fr-view .fr-no-top-border {
+  border-top-style: none;
+}
+.fr-view .fr-no-top-border:hover {
+  border-style: dotted;
+}
+.fr-view .fr-no-bottom-border {
+  border-bottom-style: none;
+}
+.fr-view .fr-no-bottom-border:hover {
+  border-style: dotted;
+}
+.fr-view .fr-no-borders {
+  border-style: none;
+}
+.fr-view .fr-no-borders td,
+.fr-view .fr-no-borders th {
+  border-style: none;
+}
+.fr-view .fr-no-borders:hover {
+  border-style: dotted;
+}
+.fr-view .fr-no-borders:hover td,
+.fr-view .fr-no-borders:hover th {
+  border-style: dotted;
+}
+.fr-view .fr-page-break {
+  height: 6px;
+  margin: 8px -8px;
+  border-style: solid none;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
+  background: linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
+  border-color: rgba(0, 0, 0, 0.15);
 }
 .fr-view .listType-decimal {
   list-style-type: decimal;
@@ -267,6 +310,9 @@
 }
 .fr-view .listType-upperRoman {
   list-style-type: upper-roman;
+}
+.fr-custom-layer {
+  margin: 10px;
 }
 document-pdf {
   display: -webkit-box;

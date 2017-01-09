@@ -8,15 +8,26 @@ module NgDocument {
         }
 
         onPreInit(editor) {
+            window['editor'] = editor;
+            console.log(["tableColWidth"].concat(editor.DEFAULTS.tableEditButtons));
             this.defaultOptions = {
                 iframe: true,
                 enter: editor.ENTER_P,
                 width: 816,
-                zIndex: 100,
                 toolbarContainer: `#${this.toolbarId}`,
                 tableStyles: {
                     'fr-no-borders': 'No Borders',
                     'fr-alternate-rows': 'Alternate Rows'
+                },
+                tableEditButtons: [].concat(editor.DEFAULTS.tableEditButtons, ["tableColWidth"]),
+                tableCellStyles: {
+                    'fr-no-borders': 'No Borders (ALL)',
+                    'fr-no-left-border': 'No Left Border',
+                    'fr-no-right-border': 'No Right Border',
+                    'fr-no-top-border': 'No Top Border',
+                    'fr-no-bottom-border': 'No Bottom Border',
+                    'fr-border-thick': 'Thick Border',
+                    'fr-border-dark': 'Dark Border'
                 },
                 fontFamily: {
                     "'Source Serif Pro', serif": "Serif",
@@ -204,7 +215,7 @@ module NgDocument {
             var $parent = $element.parent();
             var $body = angular.element($element[0].ownerDocument.body);
             $body.append($element);
-            
+
             $parent.on("$destroy", () => {
                 $element.remove();
             });
@@ -260,6 +271,8 @@ module NgDocument {
 
             var _fontSize = PLUGINS.fontSize;
             PLUGINS.fontSize = (editor) => new FontSizePlugin(editor, _fontSize(editor));
+
+            TableColWidthPlugin.register(PLUGINS);
         }
 
         initHeader($header, $content, $footer) {
