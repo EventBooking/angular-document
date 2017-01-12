@@ -8,8 +8,6 @@ module NgDocument {
         }
 
         onPreInit(editor) {
-            window['editor'] = editor;
-            console.log(["tableColWidth"].concat(editor.DEFAULTS.tableEditButtons));
             this.defaultOptions = {
                 iframe: true,
                 enter: editor.ENTER_P,
