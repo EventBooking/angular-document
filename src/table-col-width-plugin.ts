@@ -78,12 +78,13 @@ module NgDocument {
 
             var $row = this.$col.parent();
             var idx = $row.children().index(this.$col);
+            var n = idx + 1;
             var $table = $row.parents("table");
-            var $tds = $table.find(`tr > td:eq(${idx})`);
-            var $ths = $table.find(`tr > th:eq(${idx})`);
+            var $allRows = $table.find("> tbody > tr");
+            var $cells = $allRows.find("td, th");
+            var $column = $cells.filter(`:nth-child(${n}):not([colspan])`);
 
-            $tds.css("width", value);
-            $ths.css("width", value);
+            $column.css("width", value);
         }
 
         showPopup(editor, cmd) {
