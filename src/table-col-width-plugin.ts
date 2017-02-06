@@ -87,10 +87,17 @@ module NgDocument {
             $column.css("width", value);
         }
 
+        getCell(editor): angular.IAugmentedJQuery {
+            var $element = angular.element(editor.selection.get().focusNode);
+            if (!$element.is("td, th"))
+                $element = angular.element($element.parents("td, th"));
+            return $element;
+        }
+
         showPopup(editor, cmd) {
             editor.popups.setContainer(TableColWidthPlugin.TEMPLATE_NAME, editor.$tb);
 
-            this.$col = angular.element(editor.selection.get().focusNode);
+            this.$col = this.getCell(editor);
 
             var parent = editor.$iframe.offset();
 

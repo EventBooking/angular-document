@@ -67,6 +67,7 @@ declare module NgDocument {
         static register(PLUGINS: any): void;
         init(editor: any): void;
         setColWidth(value: any): void;
+        getCell(editor: any): angular.IAugmentedJQuery;
         showPopup(editor: any, cmd: any): void;
         hidePopup(editor: any): void;
         private editorStatic;
