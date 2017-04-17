@@ -15,9 +15,12 @@ module NgDocument {
                 toolbarContainer: `#${this.toolbarId}`,
                 tableStyles: {
                     'fr-no-borders': 'No Borders',
-                    'fr-alternate-rows': 'Alternate Rows'
+                    'fr-alternate-rows': 'Alternate Rows',
+                    'fr-table-pad-none': 'No Padding',
+                    'fr-table-pad-lg': 'Large Padding',
+                    'fr-table-pad-xlg': 'X-Large Padding'
                 },
-                tableEditButtons: [].concat(editor.DEFAULTS.tableEditButtons, ["tableColWidth"]),
+                tableEditButtons: [].concat(editor.DEFAULTS.tableEditButtons, ["tableColWidth", "tablePadding"]),
                 tableCellStyles: {
                     'fr-no-borders': 'No Borders (ALL)',
                     'fr-no-left-border': 'No Left Border',

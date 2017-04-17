@@ -288,6 +288,22 @@
 .fr-view .fr-no-borders:hover th {
   border-style: dotted;
 }
+.fr-view .fr-table-pad-none td,
+.fr-view .fr-table-pad-none th {
+  padding: 0;
+}
+.fr-view td,
+.fr-view th {
+  padding: .25em;
+}
+.fr-view .fr-table-pad-lg td,
+.fr-view .fr-table-pad-lg th {
+  padding: .5em;
+}
+.fr-view .fr-table-pad-xlg td,
+.fr-view .fr-table-pad-xlg th {
+  padding: 1em;
+}
 .fr-view .fr-page-break {
   height: 6px;
   margin: 8px -8px;
