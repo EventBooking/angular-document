@@ -12,7 +12,9 @@
     "exclude": [
         "node_modules",
         "bower_components",
-        "typings/globals",
+        "typings/browser",
+        "typings/main",
+        "typings/main.d.ts",
         "dist"
     ]
 }

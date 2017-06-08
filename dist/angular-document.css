@@ -21,7 +21,6 @@
 }
 .document-editor {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   position: fixed;
@@ -34,20 +33,16 @@
 }
 .document-editor-wysiwyg {
   -webkit-box-ordinal-group: 2;
-  -webkit-order: 1;
       -ms-flex-order: 1;
           order: 1;
   -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
@@ -100,7 +95,6 @@
 }
 .document-editor-sidebar {
   -webkit-box-ordinal-group: 3;
-  -webkit-order: 2;
       -ms-flex-order: 2;
           order: 2;
   -webkit-animation: sidebar-in 1s;
@@ -138,28 +132,23 @@
 .document-editor .fr-toolbar {
   border-top: 0;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .document-editor .fr-box {
   margin: 0 auto;
 }
 .document-editor .fr-box.fr-basic.fr-top {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
@@ -308,7 +297,6 @@
   height: 6px;
   margin: 8px -8px;
   border-style: solid none;
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
   background: linear-gradient(rgba(0, 0, 0, 0.1), #eee, rgba(0, 0, 0, 0.05));
   border-color: rgba(0, 0, 0, 0.15);
 }
@@ -332,7 +320,6 @@
 }
 document-pdf {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   position: fixed;
@@ -351,11 +338,9 @@ document-pdf {
 .document-viewer-toolbar {
   margin: 1em;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
@@ -371,15 +356,12 @@ document-pdf {
 }
 .document-viewer-main {
   -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
   overflow: auto;
@@ -388,12 +370,10 @@ document-pdf {
 .document-viewer-pages {
   padding: 1em;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
@@ -406,7 +386,6 @@ document-pdf {
 }
 .document-viewer-sidebar {
   -webkit-box-ordinal-group: 3;
-  -webkit-order: 2;
       -ms-flex-order: 2;
           order: 2;
   -webkit-animation: sidebar-in 1s;

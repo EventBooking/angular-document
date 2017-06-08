@@ -1,8 +1,8 @@
 {
-  "globalDependencies": {
-    "angular": "registry:dt/angular#1.5.0+20161101124950",
-    "angular-typescript-module": "file:bower_components/angular-typescript-module/dist/angular-typescript-module.d.ts",
-    "angularjs/legacy/angular": "registry:dt/angularjs/legacy/angular#1.4.0+20160724063439",
-    "jquery": "registry:dt/jquery#1.10.0+20160929162922"
+  "ambientDependencies": {
+    "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#78ba6e41543e5ababbd1dda19797601be3c1f304",
+    "angular-typescript-module": "file:node_modules/angular-typescript-module/dist/angular-typescript-module.d.ts",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#78ba6e41543e5ababbd1dda19797601be3c1f304",
+    "pdf": "registry:dt/pdf#0.0.0+20160915014424"
   }
 }
