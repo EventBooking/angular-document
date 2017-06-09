@@ -1,8 +1,9 @@
 {
   "name": "angular-document",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/angular-document.js",
+  "typings": "./dist/angular-document.d.ts",
   "scripts": {
     "tsc": "tsc",
     "tsc:w": "tsc -w",
@@ -28,7 +29,7 @@
   "dependencies": {
     "angular": "^1.4.8",
     "angular-froala": "^2.3.4",
-    "angular-typescript-module": "github:eventbooking/angular-typescript-module#v2.0.0",
+    "angular-typescript-module": "github:eventbooking/angular-typescript-module#v2.0.1",
     "froala-editor": "^2.6.1",
     "jquery": "^2.2.3",
     "normalize.css": "^4.1.1",
