@@ -1,6 +1,6 @@
 {
   "name": "angular-document",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "",
   "main": "./dist/angular-document.js",
   "typings": "./dist/angular-document.d.ts",
