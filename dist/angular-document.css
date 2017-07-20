@@ -29,7 +29,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 4;
+  z-index: 100;
 }
 .document-editor-wysiwyg {
   -webkit-box-ordinal-group: 2;
@@ -218,7 +218,7 @@
   }
 }
 .fr-popup.fr-desktop.fr-active {
-  z-index: 999;
+  z-index: 999 !important;
 }
 .fr-view hr {
   -webkit-break-after: auto;
@@ -328,7 +328,7 @@ document-pdf {
   right: 0;
   bottom: 0;
   background-color: #eee;
-  z-index: 4;
+  z-index: 100;
 }
 .document-viewer-loading {
   position: absolute;
