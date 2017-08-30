@@ -1,6 +1,6 @@
 {
   "name": "angular-document",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "",
   "main": "./dist/angular-document.js",
   "typings": "./dist/angular-document.d.ts",
@@ -30,7 +30,7 @@
     "angular": "^1.4.8",
     "angular-froala": "^2.3.4",
     "angular-typescript-module": "github:eventbooking/angular-typescript-module#v2.0.1",
-    "froala-editor": "^2.6.1",
+    "froala-editor": "^2.6.5",
     "jquery": "^2.2.3",
     "normalize.css": "^4.1.1",
     "pdfjs-dist": "^1.5.232"
