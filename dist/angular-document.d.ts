@@ -1,3 +1,4 @@
+/// <reference types="angular" />
 declare module NgDocument {
 }
 declare module NgDocument {
@@ -27,8 +28,8 @@ declare module NgDocument {
     }
     class DocumentWriter implements IDocumentWriter {
         constructor(header: string, content: string, footer: string);
-        hasHeader: boolean;
-        hasFooter: boolean;
+        readonly hasHeader: boolean;
+        readonly hasFooter: boolean;
         write(options?: IDocumentWriterOptions): string;
         private _header;
         private _content;

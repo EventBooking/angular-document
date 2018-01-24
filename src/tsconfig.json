@@ -7,14 +7,12 @@
         "inlineSourceMap": true,
         "inlineSources": true,
         "target": "es5",
-        "out": "dist/angular-document.js"
-    },
-    "exclude": [
-        "node_modules",
-        "bower_components",
-        "typings/browser",
-        "typings/main",
-        "typings/main.d.ts",
-        "dist"
-    ]
+        "out": "dist/angular-document.js",
+        "types": [
+            "angular",
+            "jquery",
+            "angular-typescript-module",
+            "pdf"
+        ]
+    }
 }
