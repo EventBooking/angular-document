@@ -47,6 +47,8 @@ declare module NgDocument {
     }
 }
 declare module NgDocument {
+}
+declare module NgDocument {
     class OrderedListPlugin {
         private editor;
         private $scope;

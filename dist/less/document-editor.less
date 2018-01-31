@@ -9,6 +9,10 @@
     left: 0;
     right: 0;
     z-index: @document-editor-zIndex;
+
+    &--mobile {
+        flex-direction: column;
+    }
 }
 
 .document-editor-wysiwyg {
@@ -16,6 +20,12 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    
+    .document-editor--mobile & {
+        padding: 1em;
+        justify-content: flex-start;
+        align-items: center;
+    }
 }
 
 .document-editor-wysiwyg-toolbar {

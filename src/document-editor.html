@@ -1,15 +1,23 @@
-<div class="document-editor">
+<div class="document-editor document-editor--mobile" ng-click="" ng-if="documentEditor.isMobile">
+    <div class="document-editor-wysiwyg">
+        <div>Sorry, this functionality is disabled on mobile</div>
+    </div>
+    <div class="document-editor-sidebar">
+        <div class="document-editor-sidebar-content" ng-transclude></div>
+    </div>
+</div>
+<div class="document-editor" ng-if="!documentEditor.isMobile">
     <div class="document-editor-wysiwyg">
         <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--toolbar">
             <div class="document-editor-wysiwyg-toolbar"></div>
         </div>
         <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content-add" ng-if="!documentEditor.withHeader">
             <span class="document-editor-wysiwyg-content-add-button" ng-click="documentEditor.withHeader = true">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle-thin fa-stack-2x"></i>
-                <i class="fa fa-plus fa-stack-1x"></i>
-            </span>
-            <span>Header</span>
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                    <i class="fa fa-plus fa-stack-1x"></i>
+                </span>
+                <span>Header</span>
             </span>
         </div>
         <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--editors">
@@ -25,11 +33,11 @@
         </div>
         <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content-add" ng-if="!documentEditor.withFooter">
             <span class="document-editor-wysiwyg-content-add-button" ng-click="documentEditor.withFooter = true">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle-thin fa-stack-2x"></i>
-                <i class="fa fa-plus fa-stack-1x"></i>
-            </span>
-            <span>Footer</span>
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                    <i class="fa fa-plus fa-stack-1x"></i>
+                </span>
+                <span>Footer</span>
             </span>
         </div>
     </div>

@@ -1,16 +1,18 @@
 {
   "name": "angular-document",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "",
   "main": "./dist/angular-document.js",
   "typings": "./dist/angular-document.d.ts",
   "scripts": {
     "tsc": "tsc -p src",
     "tsc:w": "tsc -w -p src",
+    "watch": "gulp watch",
     "build": "gulp styles && gulp html && npm run tsc",
     "rebuild": "gulp clean && npm run build",
     "start:w": "start gulp watch && start npm run tsc:w && lite-server",
-    "start": "npm run build && lite-server"
+    "start": "npm run build && lite-server",
+    "server": "lite-server"
   },
   "author": "",
   "license": "MIT",

@@ -1,7 +1,9 @@
 module NgDocument {
 
     class DocumentEditorController {
-        constructor() {
+        static $inject = ['isMobile'];
+
+        constructor(public isMobile: boolean) {
             this.header = this.header || '';
             this.content = this.content || '';
             this.footer = this.footer || '';
