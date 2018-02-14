@@ -20,8 +20,9 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    
+
     .document-editor--mobile & {
+        flex-shrink: 0;
         padding: 1em;
         justify-content: flex-start;
         align-items: center;
@@ -44,11 +45,11 @@
 
 .document-editor-wysiwyg-content {
     box-sizing: content-box;
-    
+
     &--editors {
         overflow: auto;
     }
-    
+
     &--toolbar {
         position: relative;
     }
@@ -62,11 +63,11 @@
 .document-editor-wysiwyg-content-add-button {
     cursor: pointer;
     color: @document-editor-addButton-color;
-    
+
     &:hover {
         color: @document-editor-addButton-color-hover;
     }
-    
+
     &:active {
         color: @document-editor-addButton-color-active;
     }
@@ -81,15 +82,15 @@
 
 .document-editor-wysiwyg-content-item {
     padding: 5px;
-    
+
     &--hidden {
         display: none;
     }
-    
+
     &--header {
         padding-top: 1em;
     }
-    
+
     &--footer {
         padding-bottom: 1em;
     }
@@ -97,7 +98,7 @@
 
 .document-editor-sidebar-content {
     overflow: auto;
-    
+
     &:empty {
         display: none;
     }
@@ -109,13 +110,13 @@
         border: solid 1px @document-editor-borderColor;
         box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     }
-    
+
     .document-editor & {
         .fr-box.fr-basic.fr-top & {
             box-shadow: 0 0 0 0.75pt @document-editor-boxShadow-color1, 0 0 3pt 0.75pt @document-editor-boxShadow-color2;
             border-radius: 0;
         }
-    
+
     }
 }
 
@@ -131,7 +132,7 @@
 .fr-box {
     .document-editor & {
         margin: 0 auto;
-        
+
         &.fr-basic.fr-top {
             display: flex;
             flex-direction: column;
@@ -143,13 +144,13 @@
     .document-editor .fr-wrapper & {
         display: block;
     }
-    
+
     .document-editor .fr-wrapper.show-placeholder & {
         animation: placeholder-in .3s;
         top: 10px;
         left: 10px;
     }
-    
+
     .document-editor .fr-wrapper:not(.show-placeholder) & {
         transform: rotate(270deg) translate(-40px, -25px);
 	    transform-origin: 0 top;

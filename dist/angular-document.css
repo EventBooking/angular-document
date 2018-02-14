@@ -53,6 +53,8 @@
           flex-direction: column;
 }
 .document-editor--mobile .document-editor-wysiwyg {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   padding: 1em;
   -webkit-box-pack: start;
       -ms-flex-pack: start;

@@ -6,7 +6,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('document-editor.html',
-    '<div class="document-editor document-editor--mobile" ng-click="" ng-if="documentEditor.isMobile">\n' +
+    '<div class="document-editor document-editor--mobile" ng-click="" ng-show="documentEditor.isMobile">\n' +
     '    <div class="document-editor-wysiwyg">\n' +
     '        <div>Sorry, this functionality is disabled on mobile</div>\n' +
     '    </div>\n' +
@@ -14,7 +14,7 @@ module.run(['$templateCache', function($templateCache) {
     '        <div class="document-editor-sidebar-content" ng-transclude></div>\n' +
     '    </div>\n' +
     '</div>\n' +
-    '<div class="document-editor" ng-if="!documentEditor.isMobile">\n' +
+    '<div class="document-editor" ng-show="!documentEditor.isMobile">\n' +
     '    <div class="document-editor-wysiwyg">\n' +
     '        <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--toolbar">\n' +
     '            <div class="document-editor-wysiwyg-toolbar"></div>\n' +
