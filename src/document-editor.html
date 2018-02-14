@@ -1,4 +1,4 @@
-<div class="document-editor document-editor--mobile" ng-click="" ng-if="documentEditor.isMobile">
+<div class="document-editor document-editor--mobile" ng-click="" ng-show="documentEditor.isMobile">
     <div class="document-editor-wysiwyg">
         <div>Sorry, this functionality is disabled on mobile</div>
     </div>
@@ -6,7 +6,7 @@
         <div class="document-editor-sidebar-content" ng-transclude></div>
     </div>
 </div>
-<div class="document-editor" ng-if="!documentEditor.isMobile">
+<div class="document-editor" ng-show="!documentEditor.isMobile">
     <div class="document-editor-wysiwyg">
         <div class="document-editor-wysiwyg-content document-editor-wysiwyg-content--toolbar">
             <div class="document-editor-wysiwyg-toolbar"></div>
