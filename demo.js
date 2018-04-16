@@ -9,6 +9,8 @@ function Run($rootScope) {
     $rootScope.showPdf = false;
     $rootScope.pdfUrl = 'pdf.pdf';
 
+    $rootScope.context = this.context;
+
     $rootScope.toggleEditor = function (value) {
         $rootScope.showEditor = value;
     }
@@ -24,6 +26,11 @@ function Run($rootScope) {
         aux.select();
         document.execCommand("copy");
         document.body.removeChild(aux);
+    }
+
+    $rootScope.onContextChange = function(context) {
+        console.log(context);
+        $rootScope.context = context;
     }
 }
 

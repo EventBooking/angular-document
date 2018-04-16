@@ -35,9 +35,12 @@
     </document-pdf>
 
     <div class="style-test">
-        <document-editor html="html" ng-if="showEditor">
+        <document-editor html="html" ng-if="showEditor" on-context-change="onContextChange(context)">
             <div class="sidebar">
                 <button ng-click="toggleEditor(false)">close editor</button>
+                <div>
+                    Current Position: '{{context.value}}'
+                </div>
                 <div froala-view="html"></div>
                 <div>
                     <button ng-click="copyToClipboard(html)">Copy To Clipboard</button>

@@ -157,6 +157,23 @@ module NgDocument {
             this.footer = parser.getFooter();
         }
 
+        setContext(editor) {
+            if(!this.onContextChange)
+                return;
+
+            const selection = editor.selection.get();
+            const context = {
+                value: selection.focusNode.nodeValue,
+                cursor: selection.focusOffset,
+                element: angular.element(selection.focusNode)
+            };
+
+            console.log('context is ', context);
+            this.onContextChange({
+                context: context
+            });
+        }
+
         headerOptions: any;
         contentOptions: any;
         footerOptions: any;
@@ -172,6 +189,14 @@ module NgDocument {
         footer: string;
         withHeader: boolean;
         withFooter: boolean;
+
+        onContextChange: (params: {
+            context: {
+                value: string,
+                cursor: number,
+                element: angular.IAugmentedJQuery
+            }
+        }) => void;
     }
 
     class DocumentEditorDirective {
@@ -185,7 +210,8 @@ module NgDocument {
             headerOptions: '=?',
             bodyOptions: '=?',
             footerOptions: '=?',
-            html: '=?'
+            html: '=?',
+            onContextChange: '&?'
         }
 
         link = {
@@ -199,15 +225,15 @@ module NgDocument {
 
                 $ctrl.onPreInit(editor);
             },
-            post: ($scope, $element, $attrs, $ctrl: DocumentEditorController) => {
+            post: ($scope, $element: angular.IAugmentedJQuery, $attrs, $ctrl: DocumentEditorController) => {
                 var $container = $element;
-                var $header: any = $container.find('.document-editor-header');
-                var $content: any = $container.find('.document-editor-content');
-                var $footer: any = $container.find('.document-editor-footer');
+                var $header: angular.IAugmentedJQuery = $container.find('.document-editor-header');
+                var $content: angular.IAugmentedJQuery = $container.find('.document-editor-content');
+                var $footer: angular.IAugmentedJQuery = $container.find('.document-editor-footer');
 
-                this.initHeader($header, $content, $footer);
-                this.initContent($header, $content, $footer);
-                this.initFooter($header, $content, $footer);
+                this.initHeader($ctrl, $header, $content, $footer);
+                this.initContent($ctrl, $header, $content, $footer);
+                this.initFooter($ctrl, $header, $content, $footer);
 
                 $ctrl.onInit();
             }
@@ -278,33 +304,43 @@ module NgDocument {
             TableColWidthPlugin.register(PLUGINS);
         }
 
-        initHeader($header, $content, $footer) {
+        initHeader($ctrl: DocumentEditorController, $header: JQuery<HTMLElement>, $content: JQuery<HTMLElement>, $footer: JQuery<HTMLElement>) {
             $header.froalaEditor('toolbar.hide');
             $header.on('froalaEditor.focus', (e, editor) => {
                 editor.toolbar.show();
                 $content.froalaEditor('toolbar.hide');
                 $footer.froalaEditor('toolbar.hide');
             });
+            this.initDOMEvents($ctrl, $header);
         }
 
-        initContent($header, $content, $footer) {
+        initContent($ctrl: DocumentEditorController, $header: JQuery<HTMLElement>, $content: JQuery<HTMLElement>, $footer: JQuery<HTMLElement>) {
             $content.on('froalaEditor.focus', (e, editor) => {
                 $header.froalaEditor('toolbar.hide');
                 editor.toolbar.show();
                 $footer.froalaEditor('toolbar.hide');
             });
+            this.initDOMEvents($ctrl, $content);
         }
 
-        initFooter($header, $content, $footer) {
+        initFooter($ctrl: DocumentEditorController, $header: JQuery<HTMLElement>, $content: JQuery<HTMLElement>, $footer: JQuery<HTMLElement>) {
             $footer.froalaEditor('toolbar.hide');
             $footer.on('froalaEditor.focus', (e, editor) => {
                 $header.froalaEditor('toolbar.hide');
                 $content.froalaEditor('toolbar.hide');
                 editor.toolbar.show();
             });
+            this.initDOMEvents($ctrl, $footer);
+        }
+
+        initDOMEvents($ctrl: DocumentEditorController, $element: JQuery<HTMLElement>) {
+            $element.on('froalaEditor.click froalaEditor.keypress', (e, editor) => {
+                if(!editor.selection.isCollapsed())
+                    return;
+                $ctrl.setContext(editor);
+            });
         }
     }
-
 
     Angular.module("ngDocument").directive("documentEditor", DocumentEditorDirective);
 }
