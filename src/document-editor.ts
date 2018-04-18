@@ -163,7 +163,7 @@ module NgDocument {
 
             const selection = editor.selection.get();
             const context = {
-                value: selection.focusNode.nodeValue,
+                value: selection.focusNode.nodeValue || "",
                 cursor: selection.focusOffset,
                 element: angular.element(selection.focusNode)
             };
