@@ -168,7 +168,6 @@ module NgDocument {
                 element: angular.element(selection.focusNode)
             };
 
-            console.log('context is ', context);
             this.onContextChange({
                 context: context
             });
@@ -225,15 +224,15 @@ module NgDocument {
 
                 $ctrl.onPreInit(editor);
             },
-            post: ($scope, $element: angular.IAugmentedJQuery, $attrs, $ctrl: DocumentEditorController) => {
+            post: ($scope: angular.IScope, $element: angular.IAugmentedJQuery, $attrs, $ctrl: DocumentEditorController) => {
                 var $container = $element;
                 var $header: angular.IAugmentedJQuery = $container.find('.document-editor-header');
                 var $content: angular.IAugmentedJQuery = $container.find('.document-editor-content');
                 var $footer: angular.IAugmentedJQuery = $container.find('.document-editor-footer');
 
-                this.initHeader($ctrl, $header, $content, $footer);
-                this.initContent($ctrl, $header, $content, $footer);
-                this.initFooter($ctrl, $header, $content, $footer);
+                this.initHeader($scope, $ctrl, $header, $content, $footer);
+                this.initContent($scope, $ctrl, $header, $content, $footer);
+                this.initFooter($scope, $ctrl, $header, $content, $footer);
 
                 $ctrl.onInit();
             }
@@ -304,40 +303,41 @@ module NgDocument {
             TableColWidthPlugin.register(PLUGINS);
         }
 
-        initHeader($ctrl: DocumentEditorController, $header: JQuery<HTMLElement>, $content: JQuery<HTMLElement>, $footer: JQuery<HTMLElement>) {
+        initHeader($scope: angular.IScope, $ctrl: DocumentEditorController, $header: JQuery<HTMLElement>, $content: JQuery<HTMLElement>, $footer: JQuery<HTMLElement>) {
             $header.froalaEditor('toolbar.hide');
             $header.on('froalaEditor.focus', (e, editor) => {
                 editor.toolbar.show();
                 $content.froalaEditor('toolbar.hide');
                 $footer.froalaEditor('toolbar.hide');
             });
-            this.initDOMEvents($ctrl, $header);
+            this.initDOMEvents($scope, $ctrl, $header);
         }
 
-        initContent($ctrl: DocumentEditorController, $header: JQuery<HTMLElement>, $content: JQuery<HTMLElement>, $footer: JQuery<HTMLElement>) {
+        initContent($scope: angular.IScope, $ctrl: DocumentEditorController, $header: JQuery<HTMLElement>, $content: JQuery<HTMLElement>, $footer: JQuery<HTMLElement>) {
             $content.on('froalaEditor.focus', (e, editor) => {
                 $header.froalaEditor('toolbar.hide');
                 editor.toolbar.show();
                 $footer.froalaEditor('toolbar.hide');
             });
-            this.initDOMEvents($ctrl, $content);
+            this.initDOMEvents($scope, $ctrl, $content);
         }
 
-        initFooter($ctrl: DocumentEditorController, $header: JQuery<HTMLElement>, $content: JQuery<HTMLElement>, $footer: JQuery<HTMLElement>) {
+        initFooter($scope: angular.IScope, $ctrl: DocumentEditorController, $header: JQuery<HTMLElement>, $content: JQuery<HTMLElement>, $footer: JQuery<HTMLElement>) {
             $footer.froalaEditor('toolbar.hide');
             $footer.on('froalaEditor.focus', (e, editor) => {
                 $header.froalaEditor('toolbar.hide');
                 $content.froalaEditor('toolbar.hide');
                 editor.toolbar.show();
             });
-            this.initDOMEvents($ctrl, $footer);
+            this.initDOMEvents($scope, $ctrl, $footer);
         }
 
-        initDOMEvents($ctrl: DocumentEditorController, $element: JQuery<HTMLElement>) {
-            $element.on('froalaEditor.click froalaEditor.keypress', (e, editor) => {
+        initDOMEvents($scope: angular.IScope, $ctrl: DocumentEditorController, $element: JQuery<HTMLElement>) {
+            $element.on('froalaEditor.click froalaEditor.keyup', (e, editor) => {
                 if(!editor.selection.isCollapsed())
                     return;
                 $ctrl.setContext(editor);
+                $scope.$apply();
             });
         }
     }
